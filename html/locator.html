@@ -13,13 +13,28 @@
 
 <script>
   function initMap() {
-    var uluru = {lat: -25.363, lng: 131.044};
+    var Dundee = {lat: 56.459101, lng: -2.972326};
+    var Edinburgh = {lat: 55.954064, lng: -3.203514};
+    var Glasgow = {lat:55.861392, lng:-4.248592};
+    var Aberdeen = {lat:57.146151, lng: -2.100288};
     var map = new google.maps.Map(document.getElementById('responsive-map'), {
-      zoom: 4,
-      center: uluru
+      zoom: 7,
+      center: Edinburgh
     });
     var marker = new google.maps.Marker({
-      position: uluru,
+      position: Dundee,
+      map: map
+    });
+    var marker = new google.maps.Marker({
+      position: Edinburgh,
+      map: map
+    });
+    var marker = new google.maps.Marker({
+      position: Glasgow,
+      map: map
+    });
+    var marker = new google.maps.Marker({
+      position: Aberdeen,
       map: map
     });
   }
@@ -164,10 +179,6 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCMiZs865Ub7z9aN2gKZrfcSF8
         <row>
           <div class="container col-md-12 pre-scrollable" id="locations" style="padding-top:10px; height:100%; max-height: 500px">
             <div class="container col-md-12 well" id="location1" style = "background-color:grey; padding-top:10px; font-size:120%">
-              <p>City: Dundee</p>
-              <p>Address: Nethergate</p>
-              <p>Distance: N/A</p>
-              <p>Travel Time: N/A</p>
             </div>
           </div>
         </row>
