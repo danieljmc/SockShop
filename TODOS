@@ -4,3 +4,5 @@
   - Make the same process happen on the checkout page
 
 * Make the scrolling checkout table look better
+
+* Make the location picker in the checkout actually change the location
