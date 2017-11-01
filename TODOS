@@ -1,3 +1,6 @@
 * Make the locations from the shops come from the database
   - Make search the post codes
   - Grey search button when you cant use it
+  - Make the same process happen on the checkout page
+
+* Make the scrolling checkout table look better

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Sock Shop</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=800, initial-scale=1">
+</head>
+
+<script>
+$(document).ready(function() {
+  function getDistances(stores, lat, long){
+    var geocoder = new google.maps.Geocoder;
+    var service = new google.maps.DistanceMatrixService;
+    var origin = new google.maps.LatLng(lat, long);
+
+    var destinations = [];
+    for(var i=0;i<stores.length;i++){
+      destinations.push(new google.maps.LatLng(stores[i].lat, stores[i].long));
+    }
+
+    service.getDistanceMatrix({
+      origins: [origin],
+      destinations: destinations,
+      travelMode: 'DRIVING',
+      unitSystem: google.maps.UnitSystem.METRIC,
+      avoidHighways: false,
+      avoidTolls: false
+    }, function(response, status) {
+      if (status !== 'OK') {
+        alert('Error was: ' + status);
+      } else {
+        for(var i=0;i<response.rows[0].elements.length;i++){
+          stores[i].distanceVal = response.rows[0].elements[i].distance.value;
+          stores[i].distanceText = response.rows[0].elements[i].distance.text;
+          stores[i].durationText = response.rows[0].elements[i].duration.text;
+        }
+        sortStores(stores);
+        updateStores(stores);
+      }
+    });
+  }
+
+  function Store(lat, long, name, address){
+    this.long = long;
+    this.lat = lat;
+    this.name = name;
+    this.address = address;
+    this.distanceVal = 0;
+    this.distanceText = 0;
+    this.durationText = 0;
+  }
+
+  function updateStores(stores)
+  {
+    $('#locations').empty();
+    for(var i = 0;i<stores.length;i++){
+      var newLocation = "<div class=\"container col-md-12 well\" id=\"location"+i+"\" style = \"background-color:grey; padding-top:10px; font-size:120%\"><p>City: "+stores[i].name+"</p><p>Address: "+stores[i].address+"</p><p>Distance: "+stores[i].distanceText +"</p><p>Travel Time: "+stores[i].durationText+"</p><button type=\"button\" class=\"btn btn-primary btn-md\" id=\"select"+i+"\">Select</button></div>"
+      var newButton = $(newLocation).click(function(i){console.log(JSON.parse(JSON.stringify(i)));});
+      //var newButton = $('#locations').append(newLocation).click(function(){ console.log("test") });
+      $('#locations').append(newButton);
+    }
+  }
+
+  function sortStores(stores){
+    for (var i = 1; i < stores.length; i++) {
+      var tmp = stores[i];
+      for (var j = i - 1; j >= 0 && (stores[j].distanceVal > tmp.distanceVal); j--) {
+        stores[j + 1] = stores[j];
+      }
+      stores[j + 1] = tmp;
+    }
+  }
+
+  var stores = [];
+  stores.push(new Store(56.459101, -2.972326, "Dundee", "Nethergate"));
+  stores.push(new Store(55.954064, -3.203514, "Edinburgh", "Princess Street"));
+  stores.push(new Store(55.861392, -4.248592, "Glasgow", "George Square"));
+  stores.push(new Store(57.146151, -2.100288, "Aberdeen", "Union Street"));
+
+  updateStores(stores);
+
+  var postcodeLong;
+  var postcodeLat;
+  $( "#search" ).click(function() {
+    $.get( "http://api.postcodes.io/postcodes/"+$('#postcode').val().replace(/\s/g, ''))
+    .done(function(data) {
+      postcodeLat = data.result.latitude;
+      postcodeLong = data.result.longitude;
+
+      getDistances(stores, postcodeLat, postcodeLong);
+      var sorted = sortStores(stores);
+    })
+    .fail(function() {
+      alert( "postcode doesnt exist" );
+    })
+  });
+});
+</script>
+
+<body>
+  <div class="container">
+
+    <!-- The navbar -->
+    <nav class="nav navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">Sock Shop</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Stores</a></li>
+          <li><a href="#">My Account</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#">Login</a></li>
+        </ul>
+        <form class="navbar-form navbar-right">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search">
+        </div>
+          <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+      </div>
+    </nav>
+
+    <!-- Location picker -->
+    <div class="container col-md-4" style="background-color:grey; height:600px">
+      <row>
+        <h3 class="col-12-md" style="text-align:center;">Find Locations</h3>
+      </row>
+      <row>
+        <div class="container col-md-12" style="padding-top:20px">
+          <p class="col-md-3" style="text-align:left; font-size:120%; padding-top:7px;">Postcode:</p>
+          <div class="col-md-6">
+            <input type="text" placeholder="postcode" class="form-control" id="postcode">
+          </div>
+          <button type="button" class="btn btn-primary btn-md" id="search">Search</button>
+        </div>
+      </row>
+      <row>
+        <div class="container col-md-12 pre-scrollable" id="locations" style="padding-top:10px; height:100%; max-height: 500px">
+          <div class="container col-md-12 well" id="location1" style = "background-color:grey; padding-top:10px; font-size:120%">
+          </div>
+        </div>
+      </row>
+    </div>
+
+    <!-- Checkout Pane -->
+    <div class="container col-md-8" style="background-color:grey; height:600px">
+      <row style="text-align:center;">
+        <h2>Order Summary</h3>
+      </row>
+
+      <row>
+        <div class="container col-md-12 pre-scrollable" style="height:200px;">
+          <table class="table table-bordered col-md-12">
+            <thead>
+              <tr>
+                <th>Product</th>
+                <th>Size</th>
+                <th>Quantiy</th>
+                <th>Price</th>
+                <th>Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Sport Socks</td>
+                <td>Small</td>
+                <td>2</td>
+                <td>£5</td>
+                <td>£10</td>
+              </tr>
+              <tr>
+                <td>Sport Socks</td>
+                <td>Small</td>
+                <td>2</td>
+                <td>£5</td>
+                <td>£10</td>
+              </tr>
+              <tr>
+                <td>Sport Socks</td>
+                <td>Small</td>
+                <td>2</td>
+                <td>£5</td>
+                <td>£10</td>
+              </tr>
+              <tr>
+                <td>Sport Socks</td>
+                <td>Small</td>
+                <td>2</td>
+                <td>£5</td>
+                <td>£10</td>
+              </tr>
+              <tr>
+                <td>Sport Socks</td>
+                <td>Small</td>
+                <td>2</td>
+                <td>£5</td>
+                <td>£10</td>
+              </tr>
+              <tr>
+                <td>Sport Socks</td>
+                <td>Small</td>
+                <td>2</td>
+                <td>£5</td>
+                <td>£10</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </row>
+      <row>
+        <div class="container col-md-6" style="padding-top:20px; text-align:center;">
+          <h3>Selected Store:</h3>
+          <h3 id="selectedstore">Pick A Store</h3>
+        </div>
+        <div class="container col-md-6" style="padding-top:50px; text-align:right; font-size:120%; padding-right:80px;">
+          <p>SubTotal: £20</p>
+          <p>Discounts: £-6</p>
+          <p>Total: £14</p>
+          <button type="button" class="btn btn-primary btn-md" id="pay">Pay now with PayPal</button>
+        </div>
+      </row>
+      <row>
+        <div class="container col-md-12" style="font-size:120%; padding-top: 40px;">
+          <p>
+            Your order will be ready to pick up in the store by tomorrow. Please bring ID to prove who you are.
+          </p>
+        </div>
+      </row>
+    </div>
+
+    <!-- The footer -->
+    <div class="col-md-12" style="background-color:grey; padding-top:20px;">
+      <ul class="col-md-4" style="text-align:center; list-style-type: none;">
+        <li>Company</li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Careers</a></li>
+      </ul>
+      <ul class="col-md-4" style="text-align:center; list-style-type: none;">
+        <li>More</li>
+        <li><a href="#">Acessibility</a></li>
+        <li><a href="#">Legal</a></li>
+        <li><a href="#">Privacy</a></li>
+        <li><a href="#">Terms of Use</a></li>
+      </ul>
+      <ul class="col-md-4" style="text-align:center; list-style-type: none;">
+        <li>Login</li>
+        <li><a href="#">Staff</a></li>
+        <li><a href="#">Manufacturer</a></li>
+        <li><a href="#">Customer</a></li>
+      </ul>
+    </div>
+
+  </div>
+</body>
+</html>
