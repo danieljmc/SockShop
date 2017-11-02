@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Sock Shop</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=800, initial-scale=1">
+</head>
+
+<body>
+  <div class="container">
+
+    <!-- The navbar -->
+    <nav class="nav navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">Sock Shop</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Stores</a></li>
+          <li><a href="#">My Account</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#">Login</a></li>
+        </ul>
+        <form class="navbar-form navbar-right">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search">
+        </div>
+          <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+      </div>
+    </nav>
+
+    <!-- Side panel -->
+    <div class="container col-md-4" style="padding:20px;">
+      <label for="searchterm">Search Term:</label>
+      <input type="text" class="form-control" id="searchterm" placeholder="Enter your search term" name="searchterm">
+      <label for="sortby">Sort By:</label>
+      <select class="form-control" id="sortby" style="width:50%">
+        <option value="hightolow">Price: high to low</option>
+        <option value="lowtohigh">Price: low to high</option>
+      </select>
+      <label for="size">Size:</label>
+      <select class="form-control" id="size" style="width:50%">
+        <option value="small">Small</option>
+        <option value="medium">Medium</option>
+        <option value="large">Large</option>
+        <option value="x-large">X-Large</option>
+      </select>
+      <label for="colour">Colour:</label>
+      <select class="form-control" id="size" style="width:50%">
+        <option value="blue">blue</option>
+        <option value="black">black</option>
+        <option value="white">white</option>
+        <option value="green">green</option>
+      </select>
+    </div>
+
+    <!-- Main search box -->
+    <div class="container col-md-8" style="padding:20px; font-size:100%">
+      <div class="container col-md-12">
+        <div class="container col-md-3" style="text-align:center">
+          <img src="../socks/1.jpg" style="height:133px" class="thumbnail">
+          <p>Smelly Socks</p>
+          <p>Price: £10</p>
+          <p>Sizes: S,M,L</p>
+        </div>
+        <div class="container col-md-3" style="text-align:center">
+          <img src="../socks/1.jpg" style="height:133px" class="thumbnail">
+          <p>Smelly Socks</p>
+          <p>Price: £10</p>
+          <p>Sizes: S,M,L</p>
+        </div>
+        <div class="container col-md-3" style="text-align:center">
+          <img src="../socks/1.jpg" style="height:133px" class="thumbnail">
+          <p>Smelly Socks</p>
+          <p>Price: £10</p>
+          <p>Sizes: S,M,L</p>
+        </div>
+        <div class="container col-md-3" style="text-align:center">
+          <img src="../socks/1.jpg" style="height:133px" class="thumbnail">
+          <p>Smelly Socks</p>
+          <p>Price: £10</p>
+          <p>Sizes: S,M,L</p>
+        </div>
+      </div>
+      <div class="container col-md-12"><hr/></div>
+      <div class="container col-md-12">
+        <div class="container col-md-3" style="text-align:center">
+          <img src="../socks/1.jpg" style="height:133px" class="thumbnail">
+          <p>Smelly Socks</p>
+          <p>Price: £10</p>
+          <p>Sizes: S,M,L</p>
+        </div>
+        <div class="container col-md-3" style="text-align:center">
+          <img src="../socks/1.jpg" style="height:133px" class="thumbnail">
+          <p>Smelly Socks</p>
+          <p>Price: £10</p>
+          <p>Sizes: S,M,L</p>
+        </div>
+        <div class="container col-md-3" style="text-align:center">
+          <img src="../socks/1.jpg" style="height:133px" class="thumbnail">
+          <p>Smelly Socks</p>
+          <p>Price: £10</p>
+          <p>Sizes: S,M,L</p>
+        </div>
+        <div class="container col-md-3" style="text-align:center">
+          <img src="../socks/1.jpg" style="height:133px" class="thumbnail">
+          <p>Smelly Socks</p>
+          <p>Price: £10</p>
+          <p>Sizes: S,M,L</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- The footer -->
+    <div class="col-md-12" style="background-color:grey; padding-top:20px;">
+      <ul class="col-md-4" style="text-align:center; list-style-type: none;">
+        <li>Company</li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Careers</a></li>
+      </ul>
+      <ul class="col-md-4" style="text-align:center; list-style-type: none;">
+        <li>More</li>
+        <li><a href="#">Acessibility</a></li>
+        <li><a href="#">Legal</a></li>
+        <li><a href="#">Privacy</a></li>
+        <li><a href="#">Terms of Use</a></li>
+      </ul>
+      <ul class="col-md-4" style="text-align:center; list-style-type: none;">
+        <li>Login</li>
+        <li><a href="#">Staff</a></li>
+        <li><a href="#">Manufacturer</a></li>
+        <li><a href="#">Customer</a></li>
+      </ul>
+    </div>
+
+  </div>
+</body>
+</html>
+
+</html>

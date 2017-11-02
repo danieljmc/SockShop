@@ -53,13 +53,18 @@ $(document).ready(function() {
     this.durationText = 0;
   }
 
+  function selectStore(i) {
+    return function() {
+      console.log(i);
+    }
+  }
+
   function updateStores(stores)
   {
     $('#locations').empty();
     for(var i = 0;i<stores.length;i++){
       var newLocation = "<div class=\"container col-md-12 well\" id=\"location"+i+"\" style = \"background-color:grey; padding-top:10px; font-size:120%\"><p>City: "+stores[i].name+"</p><p>Address: "+stores[i].address+"</p><p>Distance: "+stores[i].distanceText +"</p><p>Travel Time: "+stores[i].durationText+"</p><button type=\"button\" class=\"btn btn-primary btn-md\" id=\"select"+i+"\">Select</button></div>"
-      var newButton = $(newLocation).click(function(i){console.log(JSON.parse(JSON.stringify(i)));});
-      //var newButton = $('#locations').append(newLocation).click(function(){ console.log("test") });
+      var newButton = $(newLocation).click(selectStore(i));
       $('#locations').append(newButton);
     }
   }
