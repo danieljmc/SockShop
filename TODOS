@@ -3,7 +3,7 @@
   - Grey search button when you cant use it
   - Make the same process happen on the checkout page
 
-* Make the scrolling checkout table look better
+* Make the scrolling checkout table look better also in basket
 
 * Make the location picker in the checkout actually change the location
 
@@ -22,3 +22,5 @@
 * Make login become a basket
 
 * Make colors and size consistent
+
+* Make remove in checkout work

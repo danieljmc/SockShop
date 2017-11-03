@@ -38,13 +38,78 @@
     </nav>
 
     <!-- Basket Pane -->
-    <div class="container col-md-8">
-      
+    <div class="container col-md-8 pre-scrollable" style="max-height:800px; padding-top:50px; padding-bottom:50px">
+      <table class="table col-md-12">
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>Size</th>
+            <th>Quantiy</th>
+            <th>Price</th>
+            <th>Total</th>
+            <th>Delete
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><img src="../socks/1.jpg" style="width:100px; height:100px;">Sport Socks</td>
+            <td style="padding-top:50px;">Small</td>
+            <td style="padding-top:50px;">2</td>
+            <td style="padding-top:50px;">£5</td>
+            <td style="padding-top:50px;">£10</td>
+            <td style="padding-top:40px;"><button type="submit" class="btn btn-default">Remove</button></td>
+          </tr>
+          <tr>
+            <td><img src="../socks/1.jpg" style="width:100px; height:100px;">Sport Socks</td>
+            <td style="padding-top:50px;">Small</td>
+            <td style="padding-top:50px;">2</td>
+            <td style="padding-top:50px;">£5</td>
+            <td style="padding-top:50px;">£10</td>
+            <td style="padding-top:40px;"><button type="submit" class="btn btn-default">Remove</button></td>
+          </tr>
+          <tr>
+            <td><img src="../socks/1.jpg" style="width:100px; height:100px;">Sport Socks</td>
+            <td style="padding-top:50px;">Small</td>
+            <td style="padding-top:50px;">2</td>
+            <td style="padding-top:50px;">£5</td>
+            <td style="padding-top:50px;">£10</td>
+            <td style="padding-top:40px;"><button type="submit" class="btn btn-default">Remove</button></td>
+          </tr>
+          <tr>
+            <td><img src="../socks/1.jpg" style="width:100px; height:100px;">Sport Socks</td>
+            <td style="padding-top:50px;">Small</td>
+            <td style="padding-top:50px;">2</td>
+            <td style="padding-top:50px;">£5</td>
+            <td style="padding-top:50px;">£10</td>
+            <td style="padding-top:40px;"><button type="submit" class="btn btn-default">Remove</button></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
 
     <!-- to Checkout Pane -->
-    <div class="container col-md-4">
-
+    <div class="container col-md-4" style="padding:30px">
+      <h2 style="text-align:center;">Order Summary</h2>
+      <div class="container col-md-6" style="text-align:right; font-size:120%;">
+        <p>5 Items</p>
+        <p>0%</p>
+        <p>Total</p>
+      </div>
+      <div class="container col-md-6" style="text-align:center; font-size:120%;">
+        <p>£120</p>
+        <p>Promo</p>
+        <p>£120</p>
+      </div>
+      <hr/>
+      <div class="container col-md-6" style="text-align:center; font-size:120%;">
+        <input type="text" class="form-control" placeholder="promo code">
+      </div>
+      <div class="container col-md-6" style="text-align:center; font-size:120%;">
+        <button type="button" class="btn btn-primary btn-md" id="promo">Apply</button>
+      </div>
+      <div class="container col-md-12" style="text-align:center;">
+        <button type="button" class="btn btn-primary btn-md" id="continue" style="margin-top:30px;">Continue</button>
+      </div>
     </div>
 
     <!-- The footer -->
