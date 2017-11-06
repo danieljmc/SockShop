@@ -42,10 +42,10 @@
       <div class="container col-md-12" style="padding-top:10px; padding-bottom: 10px; font-size:120%; background-color:#d3d3d3;">
         <p>View Placed Orders</p>
       </div>
-      <div class="container col-md-12" style="padding-top:10px; padding-bottom: 10px; font-size:120%; background-color:gray;">
+      <div class="container col-md-12" style="padding-top:10px; padding-bottom: 10px; font-size:120%; background-color:#d3d3d3;">
         <p>Check Stock</p>
       </div>
-      <div class="container col-md-12" style="padding-top:10px; padding-bottom: 10px; font-size:120%; background-color:#d3d3d3;">
+      <div class="container col-md-12" style="padding-top:10px; padding-bottom: 10px; font-size:120%; background-color:gray;">
         <p>Order New Stock</p>
       </div>
       <div class="container col-md-12" style="padding-top:10px; padding-bottom: 10px; font-size:120%; background-color:#d3d3d3;">
@@ -59,23 +59,25 @@
       </div>
     </div>
 
-    <!-- Check Stock -->
-    <div class="container col-md-9" style="background-color:#d3d3d3; height:800px">
-      <div class="col-md-6 container">
-        <input type="text" placeholder="Search Term" class="form-control" id="searchterm">
-      </div>
+    <div class="container col-md-9" style="background-color:#d3d3d3; height:800px; padding-top:20px;">
       <div class="col-md-4 container">
-        <select class="form-control" id="sel1">
-          <option>Product ID</option>
-          <option>Product Type</option>
-          <option>Manufacturer</option>
-          <option>Colour</option>
-          <option>Size</option>
-          <option>Location</option>
+        <select class="form-control" id="sel1" placeholder="Manufacturer">
+          <option>Nike</option>
+          <option>Adidas</option>
+          <option>Reebok</option>
         </select>
       </div>
       <div class="col-md-2 container">
-        <button type="button" class="btn btn-primary btn-md" id="search">Search</button>
+        <button type="button" class="btn btn-primary btn-md" id="update">Update</button>
+      </div>
+      <div class="col-md-2 container">
+        <input type="text" placeholder="Product ID" class="form-control" id="product">
+      </div>
+      <div class="col-md-2 container">
+        <input type="text" placeholder="Quantity" class="form-control" id="quantity">
+      </div>
+      <div class="col-md-2 container">
+        <button type="button" class="btn btn-primary btn-md" id="order">Order</button>
       </div>
       <div class="container col-md-12 pre-scrollable" style="background-color:#d3d3d3; max-height:600px; height:600px">
         <table class="table table-bordered col-md-12">
@@ -83,7 +85,6 @@
             <tr>
               <th>Product ID</th>
               <th>Product Type</th>
-              <th>Manufacturer</th>
               <th>Colour</th>
               <th>Size</th>
               <th>Quantity</th>
@@ -94,7 +95,6 @@
             <tr>
               <td>0</td>
               <td>Colorful socks</td>
-              <td>Nike</td>
               <td>Black</td>
               <td>Small</td>
               <td>10</td>
@@ -129,5 +129,5 @@
     </div>
 
     </div>
-    </body>
-    </html>
+  </body>
+</html>
