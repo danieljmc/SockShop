@@ -1,10 +1,14 @@
 <?php
 require 'vendor/autoload.php';
 
-$app = new \Slim\App();
+$container = new \Slim\Container;
+$app = new \Slim\App($container);
+$container['view'] = new \Slim\Views\PhpRenderer("./html");
 
+// Root directory (ie home)
 $app->get('/', function ($request, $response, $args) {
-    return $response->withStatus(200)->write("Hello, world!");
+    $response = $this->view->render($response, "home.html");
+    return $response;
 });
 
 $app->run();
