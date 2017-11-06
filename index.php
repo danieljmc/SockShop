@@ -1,23 +1,10 @@
-<html>
-<head>
-</head>
-<body>
 <?php
+require 'vendor/autoload.php';
 
-//include database connection
-include "db.php"; 
+$app = new \Slim\App();
 
-$query = "SELECT * FROM customer";
-$stmt = $mysql->prepare($query);
-$stmt->execute();
-$result = $stmt->fetchAll();
-$boi = "come and get me, big boi";
-foreach( $result as $row ) {
-echo $row['Name'] . $row['Address'] ."<br>";
+$app->get('/', function ($request, $response, $args) {
+    return $response->withStatus(200)->write("Hello, world!");
+});
 
-echo $boi;
-
-}
-?>
-</body>
-</html>
+$app->run();
