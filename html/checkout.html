@@ -9,6 +9,16 @@
   <meta name="viewport" content="width=800, initial-scale=1">
 </head>
 
+<style>
+.table td{
+  border: black solid 1px !important;
+}
+
+.table th{
+    border: black solid 1px !important;
+}
+</style>
+
 <script>
 $(document).ready(function() {
   function getDistances(stores, lat, long){
@@ -55,7 +65,7 @@ $(document).ready(function() {
 
   function selectStore(i) {
     return function() {
-      console.log(i);
+      $('#selectedstore').text(stores[i].name + ", "+stores[i].address)
     }
   }
 
@@ -63,7 +73,7 @@ $(document).ready(function() {
   {
     $('#locations').empty();
     for(var i = 0;i<stores.length;i++){
-      var newLocation = "<div class=\"container col-md-12 well\" id=\"location"+i+"\" style = \"background-color:grey; padding-top:10px; font-size:120%\"><p>City: "+stores[i].name+"</p><p>Address: "+stores[i].address+"</p><p>Distance: "+stores[i].distanceText +"</p><p>Travel Time: "+stores[i].durationText+"</p><button type=\"button\" class=\"btn btn-primary btn-md\" id=\"select"+i+"\">Select</button></div>"
+      var newLocation = "<div class=\"container col-md-12 well\" id=\"location"+i+"\" style = \"background-color:#d3d3d3; padding-top:10px; font-size:120%\"><p>City: "+stores[i].name+"</p><p>Address: "+stores[i].address+"</p><p>Distance: "+stores[i].distanceText +"</p><p>Travel Time: "+stores[i].durationText+"</p><button type=\"button\" class=\"btn btn-primary btn-md\" id=\"select"+i+"\">Select</button></div>"
       var newButton = $(newLocation).click(selectStore(i));
       $('#locations').append(newButton);
     }
@@ -105,6 +115,10 @@ $(document).ready(function() {
 });
 </script>
 
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCMiZs865Ub7z9aN2gKZrfcSF8ruSoMz2E&callback=initMap">
+</script>
+
 <body>
   <div class="container">
 
@@ -134,7 +148,7 @@ $(document).ready(function() {
     </nav>
 
     <!-- Location picker -->
-    <div class="container col-md-4" style="background-color:grey; height:600px">
+    <div class="container col-md-4 border" style="background-color:#d3d3d3; height:600px; border:1px solid black;">
       <row>
         <h3 class="col-12-md" style="text-align:center;">Find Locations</h3>
       </row>
@@ -148,15 +162,15 @@ $(document).ready(function() {
         </div>
       </row>
       <row>
-        <div class="container col-md-12 pre-scrollable" id="locations" style="padding-top:10px; height:100%; max-height: 500px">
-          <div class="container col-md-12 well" id="location1" style = "background-color:grey; padding-top:10px; font-size:120%">
+        <div class="container col-md-12 pre-scrollable" id="locations" style="padding-top:10px; height:100%; max-height: 480px">
+          <div class="container col-md-12 well" id="location1" style = "background-color:#d3d3d3; padding-top:10px; font-size:120%">
           </div>
         </div>
       </row>
     </div>
 
     <!-- Checkout Pane -->
-    <div class="container col-md-8" style="background-color:grey; height:600px">
+    <div class="container col-md-8" style="background-color:#d3d3d3; height:600px; border:1px solid black;">
       <row style="text-align:center;">
         <h2>Order Summary</h3>
       </row>
