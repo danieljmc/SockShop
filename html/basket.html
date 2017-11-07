@@ -1,3 +1,9 @@
+<!--
+
+To add to the basket simply call add to basket and pass it the correct paramaters
+
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,34 +17,79 @@
 
 <script>
 $( document ).ready(function() {
+  var total = 0;
+  var items = 0;
+  var promo = 0;
+  var basket = new Map()
+
+  class BasketOption{
+    constructor(productID,productname,size,quantity,price){
+      this.productID = productID
+      this.productname = productname
+      this.size = size
+      this.quantity = quantity
+      this.price = price
+      basket.set(productID, this)
+    }
+  }
+
+  $('#promoButton').click(function(){
+    if($('#promocode').val().toLowerCase()=="socks10"){
+      promo = 0.1
+      updateTotal()
+    }
+  });
+
+  function updateTotal(){
+    $('#items').text(items + " Items");
+    $('#firsttotal').text("£"+total);
+    $('#promo').text((promo*100)+"%")
+    $('#secondtotal').text("£"+(1-promo)*total)
+  }
+
   function addToBasket(productname,productID,size,quantity,price){
+    new BasketOption(productID,productname,size,quantity,price)
+    total += (price*quantity);
+    items += quantity;
     var newItem = [
-      "<tr>",
+      "<tr id=\"table"+productID+"\">",
         "<td><img src=\"../productPics/"+productID+"/1.jpg\" style=\"width:100px; height:100px;\">"+productname+"</td>",
         "<td style=\"padding-top:50px;\">"+size+"</td>",
         "<td style=\"padding-top:50px;\">"+quantity+"</td>",
         "<td style=\"padding-top:50px;\">£"+price+"</td>",
         "<td style=\"padding-top:50px;\">£"+(quantity*price)+"</td>",
-        "<td style=\"padding-top:40px;\"><button type=\"submit\" class=\"btn btn-default\">Remove</button></td>",
+        "<td style=\"padding-top:40px;\"><button id=\"button"+productID+"\" type=\"submit\" class=\"btn btn-default\">Remove</button></td>",
       "</tr>"
     ]
+
+    updateTotal();
     $("#basket").append(newItem.join(''));
+
+    $('#button'+productID).click(function(){
+        var temp = basket.get(productID)
+        total -= (temp.price*temp.quantity)
+        items -= temp.quantity
+        updateTotal()
+        $("#table"+productID).remove()
+        basket.delete(productID)
+    })
   }
+
   addToBasket("Sports","0","Small",4,10);
-  addToBasket("Sports","0","Small",4,10);
-  addToBasket("Sports","0","Small",4,10);
-  addToBasket("Sports","0","Small",4,10);
-  addToBasket("Sports","0","Small",4,10);
-  addToBasket("Sports","0","Small",4,10);
-  addToBasket("Sports","0","Small",4,10);
-  addToBasket("Sports","0","Small",4,10);
-  addToBasket("Sports","0","Small",4,10);
-  addToBasket("Sports","0","Small",4,10);
-  addToBasket("Sports","0","Small",4,10);
-  addToBasket("Sports","0","Small",4,10);
-  addToBasket("Sports","0","Small",4,10);
-  addToBasket("Sports","0","Small",4,10);
-  addToBasket("Sports","0","Small",4,10);
+  addToBasket("Sports","1","Small",4,10);
+  addToBasket("Sports","2","Small",4,10);
+  addToBasket("Sports","3","Small",4,10);
+  addToBasket("Sports","4","Small",4,10);
+  addToBasket("Sports","5","Small",4,10);
+  addToBasket("Sports","6","Small",4,10);
+  addToBasket("Sports","7","Small",4,10);
+  addToBasket("Sports","8","Small",4,10);
+  addToBasket("Sports","9","Small",4,10);
+  addToBasket("Sports","10","Small",4,10);
+  addToBasket("Sports","11","Small",4,10);
+  addToBasket("Sports","12","Small",4,10);
+  addToBasket("Sports","13","Small",4,10);
+  addToBasket("Sports","14","Small",4,10);
 });
 </script>
 
@@ -92,21 +143,21 @@ $( document ).ready(function() {
     <div class="container col-md-4" style="padding:30px">
       <h2 style="text-align:center;">Order Summary</h2>
       <div class="container col-md-6" style="text-align:right; font-size:120%;">
-        <p>5 Items</p>
-        <p>0%</p>
+        <p id="items">5 Items</p>
+        <p id="promo">0%</p>
         <p>Total</p>
       </div>
       <div class="container col-md-6" style="text-align:center; font-size:120%;">
-        <p>£120</p>
+        <p id="firsttotal">£120</p>
         <p>Promo</p>
-        <p>£120</p>
+        <p id="secondtotal">£120</p>
       </div>
       <hr/>
       <div class="container col-md-6" style="text-align:center; font-size:120%;">
-        <input type="text" class="form-control" placeholder="promo code">
+        <input type="text" class="form-control" placeholder="promo code" id="promocode">
       </div>
       <div class="container col-md-6" style="text-align:center; font-size:120%;">
-        <button type="button" class="btn btn-primary btn-md" id="promo">Apply</button>
+        <button type="button" class="btn btn-primary btn-md" id="promoButton">Apply</button>
       </div>
       <div class="container col-md-12" style="text-align:center;">
         <button type="button" class="btn btn-primary btn-md" id="continue" style="margin-top:30px;">Continue</button>
