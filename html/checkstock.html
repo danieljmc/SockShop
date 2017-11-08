@@ -1,3 +1,10 @@
+<!--
+
+The search on this page is totally front end so just add the entire stock table
+there is an add item function that should be used
+
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +15,103 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=800, initial-scale=1">
 </head>
+
+<script>
+
+$(document).ready(function() {
+  var stock = []
+
+  class StockItem{
+    constructor(productID, type, manufacturer, color, size, quantity, location){
+      this.productID = productID
+      this.type = type
+      this.manufacturer = manufacturer
+      this.color = color
+      this.size = size
+      this.quantity = quantity
+      this.location = location
+      this.flatstring = productID + type + manufacturer + color + size + location
+      stock.push(this)
+      var newItem = [
+        "<tr>",
+          "<td>"+productID+"</td>",
+          "<td>"+type+"</td>",
+          "<td>"+manufacturer+"</td>",
+          "<td>"+color+"</td>",
+          "<td>"+size+"</td>",
+          "<td>"+quantity+"</td>",
+          "<td>"+location+"</td>",
+        "</tr>"
+      ]
+      $('#tablebody').append(newItem.join(""));
+      this.addToTable = function(){
+        var newItem = [
+          "<tr>",
+            "<td>"+this.productID+"</td>",
+            "<td>"+this.type+"</td>",
+            "<td>"+this.manufacturer+"</td>",
+            "<td>"+this.color+"</td>",
+            "<td>"+this.size+"</td>",
+            "<td>"+this.quantity+"</td>",
+            "<td>"+this.location+"</td>",
+          "</tr>"
+        ]
+        $('#tablebody').append(newItem.join(""));
+      }
+    }
+  }
+
+  function addItem(productid, type, manufacturer, color, size, location, quantity){
+    new StockItem(productid, type, manufacturer, color, size, location, quantity)
+  }
+
+  $('#search').click(function(){
+    $('#tablebody').empty()
+    var searchcat = $('#searchcategory option:selected').text()
+    var searchterm = $('#searchterm').val().toLowerCase()
+    for (var i in stock){
+      if(searchcat=="Product ID"){
+        if(stock[i].productID.toLowerCase()==searchterm){
+          stock[i].addToTable()
+        }
+      }
+      if(searchcat=="Product Type"){
+        if(stock[i].type.toLowerCase()==searchterm){
+          stock[i].addToTable()
+        }
+      }
+      if(searchcat=="Manufacturer"){
+        if(stock[i].manufacturer.toLowerCase()==searchterm){
+          stock[i].addToTable()
+        }
+      }
+      if(searchcat=="Colour"){
+        if(stock[i].color.toLowerCase()==searchterm){
+          stock[i].addToTable()
+        }
+      }
+      if(searchcat=="Location"){
+        if(stock[i].location.toLowerCase()==searchterm){
+          stock[i].addToTable()
+        }
+      }
+    }
+  })
+
+  addItem(1,"sock","nike","black","small",100,"Dundee")
+  addItem(0,"sock","nike","black","small",100,"Dundee")
+  addItem(0,"sock","nike","black","small",100,"Dundee")
+  addItem(0,"sock","nike","black","small",100,"Dundee")
+  addItem(0,"sock","nike","black","small",100,"Dundee")
+  addItem(0,"sock","nike","black","small",100,"Dundee")
+  addItem(0,"sock","nike","black","small",100,"Dundee")
+  addItem(0,"sock","nike","black","small",100,"Dundee")
+  addItem(0,"sock","nike","black","small",100,"Dundee")
+  addItem(0,"sock","nike","black","small",100,"Dundee")
+  addItem(0,"sock","nike","black","small",100,"Dundee")
+
+})
+</script>
 
 <body>
   <div class="container">
@@ -65,7 +169,7 @@
         <input type="text" placeholder="Search Term" class="form-control" id="searchterm">
       </div>
       <div class="col-md-4 container">
-        <select class="form-control" id="sel1">
+        <select class="form-control" id="searchcategory">
           <option>Product ID</option>
           <option>Product Type</option>
           <option>Manufacturer</option>
@@ -90,16 +194,7 @@
               <th>Location</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <td>0</td>
-              <td>Colorful socks</td>
-              <td>Nike</td>
-              <td>Black</td>
-              <td>Small</td>
-              <td>10</td>
-              <td>Dundee</td>
-            </tr>
+          <tbody id="tablebody">
           </tbody>
         </table>
       </div>
