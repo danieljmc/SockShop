@@ -21,6 +21,41 @@
 
 <script>
 $(document).ready(function() {
+  var total=0;
+  var promo=0;
+
+  function updateTotal(){
+    $('#subtotal').text("Subtotal: £"+total);
+    $('#discount').text("Discounts: "+(promo*100)+"%")
+    $('#total').text("Total: £"+(total*(1-promo)))
+  }
+
+  function addItem(productname,size,quantity,price){
+    total += (price*quantity)
+    var newItem = [
+      "<tr>",
+        "<td>"+productname+"</td>",
+        "<td>"+size+"</td>",
+        "<td>"+quantity+"</td>",
+        "<td>£"+price+"</td>",
+        "<td>£"+(quantity*price)+"</td>",
+      "</tr>"
+    ]
+    $('#tablebody').append(newItem.join(""));
+    updateTotal();
+  }
+
+  addItem("Sport Socks", "Small", 2, 10)
+  addItem("Sport Socks", "Small", 2, 10)
+  addItem("Sport Socks", "Small", 2, 10)
+  addItem("Sport Socks", "Small", 2, 10)
+  addItem("Sport Socks", "Small", 2, 10)
+  addItem("Sport Socks", "Small", 2, 10)
+  addItem("Sport Socks", "Small", 2, 10)
+  addItem("Sport Socks", "Small", 2, 10)
+  addItem("Sport Socks", "Small", 2, 10)
+
+
   function getDistances(stores, lat, long){
     var geocoder = new google.maps.Geocoder;
     var service = new google.maps.DistanceMatrixService;
@@ -187,49 +222,8 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCMiZs865Ub7z9aN2gKZrfcSF8
                 <th>Total</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <td>Sport Socks</td>
-                <td>Small</td>
-                <td>2</td>
-                <td>£5</td>
-                <td>£10</td>
-              </tr>
-              <tr>
-                <td>Sport Socks</td>
-                <td>Small</td>
-                <td>2</td>
-                <td>£5</td>
-                <td>£10</td>
-              </tr>
-              <tr>
-                <td>Sport Socks</td>
-                <td>Small</td>
-                <td>2</td>
-                <td>£5</td>
-                <td>£10</td>
-              </tr>
-              <tr>
-                <td>Sport Socks</td>
-                <td>Small</td>
-                <td>2</td>
-                <td>£5</td>
-                <td>£10</td>
-              </tr>
-              <tr>
-                <td>Sport Socks</td>
-                <td>Small</td>
-                <td>2</td>
-                <td>£5</td>
-                <td>£10</td>
-              </tr>
-              <tr>
-                <td>Sport Socks</td>
-                <td>Small</td>
-                <td>2</td>
-                <td>£5</td>
-                <td>£10</td>
-              </tr>
+            <tbody id="tablebody">
+
             </tbody>
           </table>
         </div>
@@ -240,9 +234,9 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCMiZs865Ub7z9aN2gKZrfcSF8
           <h3 id="selectedstore">Pick A Store</h3>
         </div>
         <div class="container col-md-6" style="padding-top:50px; text-align:right; font-size:120%; padding-right:80px;">
-          <p>SubTotal: £20</p>
-          <p>Discounts: £-6</p>
-          <p>Total: £14</p>
+          <p id="subtotal">SubTotal: £20</p>
+          <p id="discount">Discounts: £-6</p>
+          <p id="total">Total: £14</p>
           <button type="button" class="btn btn-primary btn-md" id="pay">Pay now with PayPal</button>
         </div>
       </row>
