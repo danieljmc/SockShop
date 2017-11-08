@@ -1,3 +1,12 @@
+<!--
+
+Now all you need to do to add to the search is create a new instance of SearchItem and the rest will be done for you
+If you go down you just put it where i currently make six random instance
+Look at the constructor to see the params needed
+Search isnt yet implemeted yet but this can be done after the backend implementation
+
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +17,76 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=800, initial-scale=1">
 </head>
+
+<script>
+$(document).ready(function() {
+  var items = []
+  class SearchItem{
+    constructor(productID,productname,sizes,price,colors){
+      items.push(this)
+      this.productID = productID
+      this.productname = productname
+      this.sizes = sizes
+      this.price = price
+      this.colors = colors
+      this.html = [
+        "<div class=\"container col-md-3\" style=\"text-align:center\">",
+          "<img src=\"../ProductPics/"+this.productID+"/1.jpg\" style=\"height:133px\" class=\"thumbnail\">",
+          "<p>"+this.productname+"</p>",
+          "<p>Price: £"+this.price+"</p>",
+          "<p>Sizes: "+this.sizes+"</p>",
+        "</div>"
+      ].join("")
+    }
+  }
+
+  function updateSearch(){
+    var groups = []
+    var currentGroup = []
+    for(var i=0;i<items.length;i++){
+      if(currentGroup.length==4){
+        groups.push(currentGroup)
+        currentGroup = [items[i]]
+      }
+      else{
+        currentGroup.push(items[i])
+      }
+    }
+    if(currentGroup.length!=0){
+      groups.push(currentGroup)
+    }
+
+    groupsHTML = []
+    for(var i=0;i<groups.length;i++){
+      var currentHTML = ""
+      for(var j=0;j<groups[i].length;j++){
+        currentHTML += groups[i][j].html
+      }
+      groupsHTML.push(currentHTML)
+    }
+
+    finalHTML = ""
+    for(var i=0;i<groupsHTML.length;i++){
+      finalHTML += "<div class=\"container col-md-12\">"
+      finalHTML += groupsHTML[i]
+      finalHTML += "</div><div class=\"container col-md-12\"><hr/></div>"
+    }
+
+    $('#searchresults').empty()
+    $('#searchresults').append(finalHTML)
+  }
+
+  new SearchItem(0,"Smelly Socks1","S,M,L","10","Black blue yellow")
+  new SearchItem(1,"Smelly Socks2","S,M,L","10","Black blue yellow")
+  new SearchItem(2,"Smelly Socks3","S,M,L","10","Black blue yellow")
+  new SearchItem(3,"Smelly Socks4","S,M,L","10","Black blue yellow")
+  new SearchItem(4,"Smelly Socks5","S,M,L","10","Black blue yellow")
+  new SearchItem(5,"Smelly Socks6","S,M,L","10","Black blue yellow")
+
+  updateSearch()
+
+});
+</script>
 
 <body>
   <div class="container">
@@ -63,60 +142,8 @@
     </div>
 
     <!-- Main search box -->
-    <div class="container col-md-8" style="padding:20px; font-size:100%">
-      <div class="container col-md-12">
-        <div class="container col-md-3" style="text-align:center">
-          <img src="../socks/1.jpg" style="height:133px" class="thumbnail">
-          <p>Smelly Socks</p>
-          <p>Price: £10</p>
-          <p>Sizes: S,M,L</p>
-        </div>
-        <div class="container col-md-3" style="text-align:center">
-          <img src="../socks/1.jpg" style="height:133px" class="thumbnail">
-          <p>Smelly Socks</p>
-          <p>Price: £10</p>
-          <p>Sizes: S,M,L</p>
-        </div>
-        <div class="container col-md-3" style="text-align:center">
-          <img src="../socks/1.jpg" style="height:133px" class="thumbnail">
-          <p>Smelly Socks</p>
-          <p>Price: £10</p>
-          <p>Sizes: S,M,L</p>
-        </div>
-        <div class="container col-md-3" style="text-align:center">
-          <img src="../socks/1.jpg" style="height:133px" class="thumbnail">
-          <p>Smelly Socks</p>
-          <p>Price: £10</p>
-          <p>Sizes: S,M,L</p>
-        </div>
-      </div>
-      <div class="container col-md-12"><hr/></div>
-      <div class="container col-md-12">
-        <div class="container col-md-3" style="text-align:center">
-          <img src="../socks/1.jpg" style="height:133px" class="thumbnail">
-          <p>Smelly Socks</p>
-          <p>Price: £10</p>
-          <p>Sizes: S,M,L</p>
-        </div>
-        <div class="container col-md-3" style="text-align:center">
-          <img src="../socks/1.jpg" style="height:133px" class="thumbnail">
-          <p>Smelly Socks</p>
-          <p>Price: £10</p>
-          <p>Sizes: S,M,L</p>
-        </div>
-        <div class="container col-md-3" style="text-align:center">
-          <img src="../socks/1.jpg" style="height:133px" class="thumbnail">
-          <p>Smelly Socks</p>
-          <p>Price: £10</p>
-          <p>Sizes: S,M,L</p>
-        </div>
-        <div class="container col-md-3" style="text-align:center">
-          <img src="../socks/1.jpg" style="height:133px" class="thumbnail">
-          <p>Smelly Socks</p>
-          <p>Price: £10</p>
-          <p>Sizes: S,M,L</p>
-        </div>
-      </div>
+    <div class="container col-md-8" style="padding:20px; font-size:100%" id="searchresults">
+
     </div>
 
     <!-- The footer -->
