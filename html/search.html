@@ -40,7 +40,45 @@ $(document).ready(function() {
     }
   }
 
+  function highToLow(){
+    for (var i = items.length-1; i>=0; i--){
+      for(var j = 1; j<=i; j++){
+        if(items[j-1].price<items[j].price){
+          var temp = items[j-1];
+          items[j-1] = items[j];
+          items[j] = temp;
+        }
+      }
+    }
+  }
+
+  function lowToHigh(){
+    for (var i = items.length-1; i>=0; i--){
+      for(var j = 1; j<=i; j++){
+        if(items[j-1].price>items[j].price){
+          var temp = items[j-1];
+          items[j-1] = items[j];
+          items[j] = temp;
+        }
+      }
+    }  }
+
+  function sortItems(){
+    var sortby = $('#sortby :selected').val()
+    if(sortby=="hightolow"){
+      highToLow()
+    }
+    else if(sortby=="lowtohigh"){
+      lowToHigh()
+    }
+  }
+
+  $('#sortby').change(function(){
+    return updateSearch()
+  })
+
   function updateSearch(){
+    sortItems()
     var groups = []
     var currentGroup = []
     for(var i=0;i<items.length;i++){
@@ -76,12 +114,12 @@ $(document).ready(function() {
     $('#searchresults').append(finalHTML)
   }
 
-  new SearchItem(0,"Smelly Socks1","S,M,L","10","Black blue yellow")
-  new SearchItem(1,"Smelly Socks2","S,M,L","10","Black blue yellow")
-  new SearchItem(2,"Smelly Socks3","S,M,L","10","Black blue yellow")
-  new SearchItem(3,"Smelly Socks4","S,M,L","10","Black blue yellow")
-  new SearchItem(4,"Smelly Socks5","S,M,L","10","Black blue yellow")
-  new SearchItem(5,"Smelly Socks6","S,M,L","10","Black blue yellow")
+  new SearchItem(0,"Smelly Socks1","S,M,L","1","Black blue yellow")
+  new SearchItem(1,"Smelly Socks2","S,M,L","2","Black blue yellow")
+  new SearchItem(2,"Smelly Socks3","S,M,L","3","Black blue yellow")
+  new SearchItem(3,"Smelly Socks4","S,M,L","4","Black blue yellow")
+  new SearchItem(4,"Smelly Socks5","S,M,L","5","Black blue yellow")
+  new SearchItem(5,"Smelly Socks6","S,M,L","6","Black blue yellow")
 
   updateSearch()
 
@@ -118,27 +156,24 @@ $(document).ready(function() {
 
     <!-- Side panel -->
     <div class="container col-md-4" style="padding:20px;">
-      <label for="searchterm">Search Term:</label>
-      <input type="text" class="form-control" id="searchterm" placeholder="Enter your search term" name="searchterm">
-      <label for="sortby">Sort By:</label>
-      <select class="form-control" id="sortby" style="width:50%">
-        <option value="hightolow">Price: high to low</option>
-        <option value="lowtohigh">Price: low to high</option>
-      </select>
-      <label for="size">Size:</label>
-      <select class="form-control" id="size" style="width:50%">
-        <option value="small">Small</option>
-        <option value="medium">Medium</option>
-        <option value="large">Large</option>
-        <option value="x-large">X-Large</option>
-      </select>
-      <label for="colour">Colour:</label>
-      <select class="form-control" id="size" style="width:50%">
-        <option value="blue">blue</option>
-        <option value="black">black</option>
-        <option value="white">white</option>
-        <option value="green">green</option>
-      </select>
+      <div class="container col-md-12">
+        <label for="searchterm">Search Term:</label>
+      </div>
+      <div class="container col-md-10">
+        <input type="text" class="form-control" id="searchterm" placeholder="Enter your search term" name="searchterm">
+      </div>
+      <div class="container col-md-2" style="padding-bottom:10px">
+        <button type="submit" class="btn btn-default">Search</button>
+      </div>
+      <div class="container col-md-12">
+        <label for="sortby">Sort By:</label>
+      </div>
+      <div class="container col-md-12">
+        <select class="form-control" id="sortby" style="width:50%" id="sortby">
+          <option value="hightolow">Price: high to low</option>
+          <option value="lowtohigh">Price: low to high</option>
+        </select>
+      </div>
     </div>
 
     <!-- Main search box -->
