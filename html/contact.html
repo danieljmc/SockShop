@@ -9,6 +9,19 @@
   <meta name="viewport" content="width=800, initial-scale=1">
 </head>
 
+<script>
+  $(document).ready(function(){
+    $('#sendmessage').click(function(){
+      var subject = $('#subject').val()
+      var from = $('#name').val()
+      var body = $('#message').val() + "\n"+from
+      var email = $('#email').val()
+      var mailto = "mailto:support@sockshop.com?subject="+encodeURIComponent(subject)+"&cc="+encodeURIComponent(email)+"&body="+encodeURIComponent(body)
+      window.open(mailto, "_blank");
+    })
+  })
+</script>
+
 <body>
   <div class="container">
 
@@ -47,17 +60,17 @@
         </div>
         <div class="form-group">
           <label for="email">Email Address:</label>
-          <input type="email" class="form-control" id="email" placeholder="Enter your email" name="email">
+          <input type="email" class="form-control" id="email" placeholder="Enter your email" name="email" id="email">
         </div>
         <div class="form-group">
           <label for="subject">Subject:</label>
-          <input type="text" class="form-control" id="subject" placeholder="The subject of your message" name="subject">
+          <input type="text" class="form-control" id="subject" placeholder="The subject of your message" name="subject" id="subject">
         </div>
         <div class="form-group">
           <label for="message">Message Body:</label>
           <textarea type="text" class="form-control" id="message" placeholder="Enter your message here" name="message" style="height:200px; resize:none;"></textarea>
         </div>
-        <button type="submit" class="btn btn-default">Send Message</button>
+        <button type="button" id="sendmessage" class="btn btn-default">Send Message</input>
       </form>
     </div>
 
