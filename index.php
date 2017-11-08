@@ -11,6 +11,10 @@ $app->get('/', function($request, $response, $args) {
     return $response;
 });
 
+$app->get('/search/[{q}]', function ($request, $response, $args) use ($app) {
+    return mysqli::real_escape_string($_GET['q']);
+});
+
 $app->get('/about', function($request, $response, $args) {
     $response = $this->view->render($response, "about.html");
     return $response;
