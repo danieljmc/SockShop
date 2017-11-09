@@ -74,11 +74,16 @@ The current populate page is just an example and is what will change
           include '../db.php';
           $query = "SELECT * FROM Products";
           $stmt = $mysql->prepare($query);
-          $stmt->execute();
-          $result = $stmt->fetchAll();
-          foreach( $result as $row ) {
-            echo "console.log("+ $row['id']+")";
+          try{
+            $stmt->execute();
+            $result = $stmt->fetchAll();
+            foreach( $result as $row ) {
+              echo "console.log("+ $row['id']+")";
+            }
+          } catch( PDOException $e ){
+            echo $e->getMessage();
           }
+
 
        ?>
 
