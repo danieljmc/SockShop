@@ -16,7 +16,7 @@ $app->get('/search[{q}]', function ($request, $response, $args) use ($app) {
 });
 
 $app->get('/about', function($request, $response, $args) {
-    $response = $this->view->render($response, "/about.html");
+    $response = $this->view->render($response, "about.html");
     return $response;
 });
 
