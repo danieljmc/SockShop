@@ -22,17 +22,17 @@ $app->get($req->getRootUri() . '/about', function($request, $response, $args) {
     return $response;
 });
 
-$app->get('/contact', function($request, $response, $args) {
+$app->get('/contact/', function($request, $response, $args) {
     $response = $this->view->render($response, "contact.html");
     return $response;
 });
 
-$app->get('/stores', function($request, $response, $args) {
+$app->get('/stores/', function($request, $response, $args) {
     $response = $this->view->render($response, "locator.html");
     return $response;
 });
 
-$app->get('/myaccount', function($request, $response, $args) {
+$app->get('/myaccount/', function($request, $response, $args) {
     $response = $this->view->render($response, "login.html");
     return $response;
 });
