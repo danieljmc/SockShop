@@ -72,20 +72,33 @@ The current populate page is just an example and is what will change
        <?php
 
           include '../db.php';
-          $query = "SELECT * FROM product";
+          $query = "select * from producttype inner join product on ProductType_id=producttype.id where producttype.id=1";
           $stmt = $mysql->prepare($query);
+          $productID = 1;
+          $productName = "";
+          $productDescription = "";
+          $productMaterial = "";
+          $productPrice = 0;
           try{
             $stmt->execute();
             $result = $stmt->fetchAll();
             var_dump($result);
             foreach( $result as $row ) {
-              echo $row['Size'];
+              $productID = $row['id'];
+              $productName = $row['Name'];
+              $productDescription = $row['Description'];
+              $productMaterial = $row['Material'];
+              $productPrice = $row['Price']
             }
           } catch( PDOException $e ){
             echo $e->getMessage();
           }
 
-
+          echo $productID;
+          echo $productName;
+          echo $productDescription;
+          echo $productMaterial;
+          echo $productPrice;
        ?>
 
        var description = "This is where the desctiption of the socks in the sock shop will go. They should all be roughly the same length. The descirption will be pulled from the database in the main product"
