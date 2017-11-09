@@ -69,6 +69,18 @@ The current populate page is just an example and is what will change
 
        }
 
+       <?php
+
+          include '../db.php'
+          $query = "SELECT * FROM Products";
+          $stmt = $mysql->prepare($query);
+          $stmt->execute();
+          $result = $stmt->fetchAll();
+          foreach( $result as $row ) {
+            echo "console.log("+ $row['id']+")";
+          }
+
+       ?>
 
        var description = "This is where the desctiption of the socks in the sock shop will go. They should all be roughly the same length. The descirption will be pulled from the database in the main product"
        var materials = "We didnt store this so maybe we shouldnt have it? Just thought it was a nice thought? We could get away with this beig static maybe?"
