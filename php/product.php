@@ -88,7 +88,7 @@ The current populate page is just an example and is what will change
               $productName = $row['Name'];
               $productDescription = $row['Description'];
               $productMaterial = $row['Material'];
-              $productPrice = $row['Price']
+              $productPrice = $row['Price'];
             }
           } catch( PDOException $e ){
             echo $e->getMessage();
