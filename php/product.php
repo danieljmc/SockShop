@@ -77,7 +77,7 @@ The current populate page is just an example and is what will change
           try{
             $stmt->execute();
             $result = $stmt->fetchAll();
-            var_dump($result)
+            var_dump($result);
             foreach( $result as $row ) {
               echo $row['Size'];
             }
