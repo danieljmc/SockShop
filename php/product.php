@@ -77,9 +77,8 @@ The current populate page is just an example and is what will change
           try{
             $stmt->execute();
             $result = $stmt->fetchAll();
-            echo $result;
             foreach( $result as $row ) {
-              echo "console.log("+ $row['id']+")";
+              echo $row['Size'];
             }
           } catch( PDOException $e ){
             echo $e->getMessage();
