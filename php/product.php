@@ -72,7 +72,7 @@ The current populate page is just an example and is what will change
        <?php
 
           include '../db.php';
-          $query = "SELECT * FROM Products";
+          $query = "SELECT * FROM product";
           $stmt = $mysql->prepare($query);
           try{
             $stmt->execute();
