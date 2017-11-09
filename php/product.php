@@ -77,7 +77,7 @@ The current populate page is just an example and is what will change
           try{
             $stmt->execute();
             $result = $stmt->fetchAll();
-            echo $results;
+            echo $result;
             foreach( $result as $row ) {
               echo "console.log("+ $row['id']+")";
             }
