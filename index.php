@@ -4,9 +4,11 @@ require 'vendor/autoload.php';
 $container = new \Slim\Container;
 $app = new \Slim\App($container);
 $container['view'] = new \Slim\Views\PhpRenderer("./html");
+$req = $app->request;
+
 
 // Root directory (ie home)
-$app->get('/', function($request, $response, $args) {
+$app->get($req->getRootUri() . '/', function($request, $response, $args) {
     $response = $this->view->render($response, "home.html");
     return $response;
 });
@@ -15,7 +17,7 @@ $app->get('/search[{q}]', function ($request, $response, $args) use ($app) {
     return $_GET['q'];
 });
 
-$app->get('/about', function($request, $response, $args) {
+$app->get($req->getRootUri() . '/about', function($request, $response, $args) {
     $response = $this->view->render($response, "about.html");
     return $response;
 });
