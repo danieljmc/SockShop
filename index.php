@@ -6,12 +6,14 @@ $app = new \Slim\App($container);
 $container['view'] = new \Slim\Views\PhpRenderer("./html");
 
 // Root directory (ie home)
-$app->group('2017-ac32006/team19', function() use ($app) {
-    $app->get('/', function($request, $response, $args) {
-        $response = $this->view->render($response, "home.html");
-        return $response;
-    });
 
+$app->get('/', function($request, $response, $args) {
+    $response = $this->view->render($response, "home.html");
+    return $response;
+});
+
+$app->group('2017-ac32006/team19', function() use ($app) {
+    
     $app->get('/search[{q}]', function ($request, $response, $args) use ($app) {
         return $_GET['q'];
     });
