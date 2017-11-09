@@ -23,7 +23,7 @@ $mysql->exec($query);
 
 }
 //gets query, gets row, sets active row
-$qresult = mysqli_query($db, $query);
+$qresult = mysqli_query($db, $mysql);
 $row = mysqli_fetch_array($qresult,MYSQLI_ASSOC);
 $aresult = $row['active'];
 //tests the resultsi n that row against the input
