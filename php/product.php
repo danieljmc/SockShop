@@ -82,13 +82,13 @@ The current populate page is just an example and is what will change
           try{
             $stmt->execute();
             $result = $stmt->fetchAll();
-            var_dump($result);
+            //var_dump($result);
             foreach( $result as $row ) {
               $productID = $row['id'];
               $productName = $row['Name'];
               $productDescription = $row['Description'];
               $productMaterial = $row['Material'];
-              $productPrice = $row['Price']
+              $productPrice = $row['Price'];
             }
           } catch( PDOException $e ){
             echo $e->getMessage();
