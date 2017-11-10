@@ -69,6 +69,8 @@ The current populate page is just an example and is what will change
 
        }
 
+       var pairs = [];
+
        <?php
 
           include '../db.php';
@@ -82,28 +84,37 @@ The current populate page is just an example and is what will change
           try{
             $stmt->execute();
             $result = $stmt->fetchAll();
-            //var_dump($result);
             foreach( $result as $row ) {
               $productID = $row['id'];
               $productName = $row['Name'];
               $productDescription = $row['Description'];
               $productMaterial = $row['Material'];
               $productPrice = $row['Price'];
+              echo "pairs.push(['".$row['Size']."','".$row['Colour']."']);\n";
             }
           } catch( PDOException $e ){
             echo $e->getMessage();
           }
-
-          echo $productID;
-          echo $productName;
-          echo $productDescription;
-          echo $productMaterial;
-          echo $productPrice;
        ?>
 
-       var description = "This is where the desctiption of the socks in the sock shop will go. They should all be roughly the same length. The descirption will be pulled from the database in the main product"
-       var materials = "We didnt store this so maybe we shouldnt have it? Just thought it was a nice thought? We could get away with this beig static maybe?"
-       populatePage(1,"Smelly Socks",description,materials,["Small","Medium"],["Black","Blue"],12)
+       var sizes = []
+       var colors = []
+
+       for(var i=0;i<pairs.length;i++){
+         if(!sizes.includes(pairs[i][0])){
+           sizes.push(pairs[i][0])
+         }
+         if(!colors.includes(pairs[i][1])){
+           colors.push(pairs[i][1])
+         }
+       }
+
+       var description = "<?php echo $productDescription; ?>";
+       var materials = "<?php echo $productMaterial; ?>";
+       var productID = <?php echo $productID; ?>;
+       var productName = "<?php echo $productName; ?>";
+       var price = <?php echo $productPrice; ?>;
+       populatePage(1,productName,description,materials,sizes,colors,price)
     });
   </script>
 
