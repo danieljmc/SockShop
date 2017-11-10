@@ -26,15 +26,15 @@
 
         <div class="carousel-inner" role="listbox">
           <div class="item active">
-            <img class="d-block img-fluid" src="socks/sockbanners/ban1.png" alt="Promo1" style="width:100%;">
+            <img class="d-block img-fluid" src="../socks/sockbanners/ban1.png" alt="Promo1" style="width:100%;">
           </div>
 
           <div class="item">
-            <img class="d-block img-fluid" src="socks/sockbanners/ban2.png" alt="Promo2" style="width:100%;">
+            <img class="d-block img-fluid" src="../socks/sockbanners/ban2.png" alt="Promo2" style="width:100%;">
           </div>
 
           <div class="item">
-            <img class="d-block img-fluid" src="socks/sockbanners/ban3.png" alt="Promo3" style="width:100%;">
+            <img class="d-block img-fluid" src="../socks/sockbanners/ban3.png" alt="Promo3" style="width:100%;">
           </div>
         </div>
 
