@@ -30,10 +30,10 @@ $aresult = $row['active'];
 $rownum = mysqli_num_rows($result);
 if($rownum == 1) {
 $_SESSION['loggedIn'] = $usernam;
+header("location: index.php");
 }else 
-{
     $error = "Invalid credentials";
-}
+
 
 }
 
