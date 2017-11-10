@@ -74,7 +74,7 @@ The current populate page is just an example and is what will change
        <?php
 
           include '../db.php';
-          $query = "select * from producttype inner join product on ProductType_id=producttype.id where producttype.id=1";
+          $query = "select * from producttype inner join product on ProductType_id=producttype.id where producttype.id=".$_GET['id'].";";
           $stmt = $mysql->prepare($query);
           $productID = 1;
           $productName = "";
