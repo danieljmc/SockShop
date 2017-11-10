@@ -1,30 +1,40 @@
 <?php
-include "db.php";
+include ("db.php");
 
-IF()
-
+if(!isset($_SESSION))
 session_start();
 
+if($_SERVER["REQUEST_METHOD"] == "POST") 
+{
+
 $usernam = $_POST['username'];
-//print ($username);
+//print ($usernam);
 
 $pasword = $_POST['pasword'];
-//print ($username);
+
 
 try{
-// Create the SQL Query
+//does query
 $query = "SELECT * FROM customer WHERE Email = '$usernam' and Password = '$pasword'";
-// Execute the query on the database
+//executes the query
 $mysql->exec($query);
-} catch ( PDOException $e ) {
+} catch ( PDOException $e ) 
+{
+
+}
+//gets query, gets row, sets active row
+$qresult = mysqli_query($db, $mysql);
+$row = mysqli_fetch_array($qresult,MYSQLI_ASSOC);
+$aresult = $row['active'];
+//tests the resultsi n that row against the input
+$rownum = mysqli_num_rows($result);
+if($rownum == 1) {
+$_SESSION['loggedIn'] = $usernam;
+}else 
+{
+    $error = "Invalid credentials";
 }
 
-$qresult = mysqli_query($db,$sql);
-$row = mysqli_fetch_array($qresult,MYSQLI_ASSOC);
-$result = $row['active'];
-
-$count = mysqli_num_rows($result);
-
-$_SESSION['loggedIn'] = $usernam;
+}
 
 ?>
