@@ -27,6 +27,7 @@
     </div>
 </div>
 
+<<<<<<< HEAD
 <div class="container">
 	<div class="row">
 		<div class="span12">
@@ -47,3 +48,28 @@
 	</div>
 	<hr />
 </div>
+=======
+  echo "<div class=\"col-md-12\" style=\"padding-top:20px;\">
+    <ul class=\"col-md-4\" style=\"text-align:center; list-style-type: none;\">
+      <li>Company</li>
+      <li><a href=\"#\">About</a></li>
+      <li><a href=\"#\">Contact</a></li>
+      <li><a href=\"#\">Careers</a></li>
+    </ul>
+    <ul class=\"col-md-4\" style=\"text-align:center; list-style-type: none;\">
+      <li>More</li>
+      <li><a href=\"#\">Acessibility</a></li>
+      <li><a href=\"#\">Legal</a></li>
+      <li><a href=\"#\">Privacy</a></li>
+      <li><a href=\"#\">Terms of Use</a></li>
+    </ul>
+    <ul class=\"col-md-4\" style=\"text-align:center; list-style-type: none;\">
+      <li>Login</li>
+      <li><a href=\"stafflogin.php\">Staff</a></li>
+      <li><a href=\"#\">Manufacturer</a></li>
+      <li><a href=\"#\">Customer</a></li>
+    </ul>
+  </div>";
+
+?>
+>>>>>>> 1617a3ff367c0b31e1eb55a6875e54ef27e2c59f
