@@ -97,7 +97,8 @@ $(document).ready(function() {
     });
   }
 
-  function Store(lat, long, name, address){
+  function Store(id, lat, long, name, address){
+    this.id = idea;
     this.long = long;
     this.lat = lat;
     this.name = name;
@@ -134,10 +135,10 @@ $(document).ready(function() {
   }
 
   var stores = [];
-  stores.push(new Store(56.459101, -2.972326, "Dundee", "Nethergate"));
-  stores.push(new Store(55.954064, -3.203514, "Edinburgh", "Princess Street"));
-  stores.push(new Store(55.861392, -4.248592, "Glasgow", "George Square"));
-  stores.push(new Store(57.146151, -2.100288, "Aberdeen", "Union Street"));
+  stores.push(new Store(1, 56.459101, -2.972326, "Dundee", "Nethergate"));
+  stores.push(new Store(2, 55.954064, -3.203514, "Edinburgh", "Princess Street"));
+  stores.push(new Store(3, 55.861392, -4.248592, "Glasgow", "George Square"));
+  stores.push(new Store(4, 57.146151, -2.100288, "Aberdeen", "Union Street"));
 
   updateStores(stores);
 
