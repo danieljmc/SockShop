@@ -13,11 +13,13 @@
 			INNER JOIN producttype ON product.ProductType_id = producttype.id)
 			INNER JOIN productquantity ON product.id = productquantity.ProductID)
             INNER JOIN location ON productquantity.locationID = location.id)
-            INNER JOIN manufacturer ON producttype.Manufacturer_id = manufacturer.id);"
+            INNER JOIN manufacturer ON producttype.Manufacturer_id = manufacturer.id);";
 	
-		$result = mysql_query($query);
+		$stmt = mysql->prepare($query);
+		$stmt->execute(); 
+		$result = $stmt->fetchAll(); 
 
-		while($row = mysql_fetch_array($result)) {
+		foreach($result as $row) {
 			echo $row['producttype.id'];
 		}
 		
