@@ -1,5 +1,5 @@
 <!--First part - Company, info and login links.-->
-<div class="col-md-12" style="padding-top:20px;">
+<div class="col-md-12 container" style="padding-top:20px;">
 	<hr>
     <div class="col-md-4" style="text-align:center; list-style-type: none;">
 		<ul class="nav nav-pills nav-stacked">
@@ -29,7 +29,7 @@
 </div>
 
 <!--Second part - Social media and copyright.-->
-<div class="container">
+<div class="container col-md-12">
 	<div class="text-center" style="margin-left:-25px">
 		<a href="https://www.facebook.com"><i class="fa fa-facebook-square fa-3x social"></i></a>
 		<a href="https://twitter.com"><i class="fa fa-twitter-square fa-3x social"></i></a>
