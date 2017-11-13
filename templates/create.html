@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Sock Shop</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=800, initial-scale=1">
+</head>
+
+<body>
+  <div class="container">
+
+    <!-- The navbar -->
+    <nav class="nav navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">Sock Shop</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Stores</a></li>
+          <li><a href="#">My Account</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#">Login</a></li>
+        </ul>
+        <form class="navbar-form navbar-right">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search">
+        </div>
+          <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+      </div>
+    </nav>
+
+    <!-- Create Panel -->
+    <div class="container col-md-12" style="text-align:center;">
+      <form>
+        <div class="form-group">
+          <label for="name" style="padding-top:30px;">Full Name:</label>
+          <input type="text" class="form-control" id="name" placeholder="Enter your fullname" name="name" style="margin: auto; width:40%;">
+          <label for="address" style="padding-top:30px;">Address:</label>
+          <input type="text" class="form-control" id="address" placeholder="Enter your address" name="address" style="width:40%; margin: auto;">
+          <label for="dob" style="padding-top:30px;">Date Of Birth:</label>
+          <input type="text" class="form-control" id="dob" placeholder="dd/mm/yyyy" name="dob" style="width:40%; margin: auto;">
+          <label for="email" style="padding-top:30px;">Email:</label>
+          <input type="email" class="form-control" id="email" placeholder="Enter your email" name="email" style="width:40%; margin: auto;">
+          <label for="password" style="padding-top:30px;">Password:</label>
+          <input type="password" class="form-control" id="password" placeholder="Enter your password" name="password" style="width:40%; margin: auto;">
+          <label for="repassword" style="padding-top:30px;">Confirm Password:</label>
+          <input type="password" class="form-control" id="repassword" placeholder="Enter your password" name="repassword" style="width:40%; margin: auto;">
+          <button type="submit" class="btn btn-default" style="margin-top:30px;">Create</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="col-md-12" style="background-color:grey; padding-top:20px;">
+      <ul class="col-md-4" style="text-align:center; list-style-type: none;">
+        <li>Company</li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Careers</a></li>
+      </ul>
+      <ul class="col-md-4" style="text-align:center; list-style-type: none;">
+        <li>More</li>
+        <li><a href="#">Acessibility</a></li>
+        <li><a href="#">Legal</a></li>
+        <li><a href="#">Privacy</a></li>
+        <li><a href="#">Terms of Use</a></li>
+      </ul>
+      <ul class="col-md-4" style="text-align:center; list-style-type: none;">
+        <li>Login</li>
+        <li><a href="#">Staff</a></li>
+        <li><a href="#">Manufacturer</a></li>
+        <li><a href="#">Customer</a></li>
+      </ul>
+    </div>
+
+  </div>
+</body>
+</html>
