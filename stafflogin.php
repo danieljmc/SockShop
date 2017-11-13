@@ -37,7 +37,7 @@ $stmt = $mysql->prepare($query);
     <?php include('php/header.php'); ?>
 
     <!-- Login Details -->
-    <div class="container col-md-5" style="padding-top:200px;">
+    <div class="container col-md-5" style="padding-top:100px;">
       <div style="background-color:#d3d3d3; padding:20px">
         <h1>Staff Login</h1>
         <form action="stafflogin.php" method="POST">
