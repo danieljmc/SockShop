@@ -16,7 +16,7 @@
     </ul>
     <ul class=\"col-md-4\" style=\"text-align:center; list-style-type: none;\">
       <li>Login</li>
-      <li><a href=\"#\">Staff</a></li>
+      <li><a href=\"stafflogin.php\">Staff</a></li>
       <li><a href=\"#\">Manufacturer</a></li>
       <li><a href=\"#\">Customer</a></li>
     </ul>
