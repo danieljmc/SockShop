@@ -36,7 +36,7 @@
 
 
     $part2 = "</ul>
-    <form class=\"navbar-form navbar-right\" style=\"padding-top:25px; padding-bottom:25px\" action=\"search.php\" method=\"post\">
+    <form class=\"navbar-form navbar-right\" style=\"padding-top:25px; padding-bottom:25px\" action=\"search.php\" method=\"get\">
     <div class=\"form-group\">
       <input type=\"text\" name=\"searchterm\" class=\"form-control\" placeholder=\"Search\">
     </div>

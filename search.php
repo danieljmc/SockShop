@@ -125,8 +125,8 @@ $(document).ready(function() {
 
   <?php
     include 'php/db.php';
-    if(isset($_POST['searchterm'])){
-      $query = "select id,ProductName,Description,price from producttype where ProductName like '%".$_POST['searchterm']."%'";
+    if(isset($_GET['searchterm'])){
+      $query = "select id,ProductName,Description,price from producttype where ProductName like '%".$_GET['searchterm']."%'";
       $stmt = $mysql->prepare($query);
       try{
         $stmt->execute();
@@ -178,7 +178,7 @@ $(document).ready(function() {
       <div class="container col-md-12">
         <label for="searchterm">Search Term:</label>
       </div>
-      <form action="search.php" method="post">
+      <form action="search.php" method="get">
         <div class="container col-md-10">
           <input type="text" class="form-control" id="searchterm" placeholder="Enter your search term" name="searchterm">
         </div>
