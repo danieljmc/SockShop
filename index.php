@@ -55,42 +55,42 @@
 	<div class="row text-center text-lg-left">
 
 		<div class="col-lg-3 col-md-5 col-xs-6">
-		  <a href="search.php?=multicolor" class="d-block mb-4 h-100">
+		  <a href="search.php?searchterm=multicolor" class="d-block mb-4 h-100">
 			<img class="img-fluid img-thumbnail" src="Pics/Categories/cat1.png" style="height:210px">
 		  </a>
 		</div>
 		<div class="col-lg-3 col-md-4 col-xs-6">
-		  <a href="search.php?=bright" class="d-block mb-4 h-100">
+		  <a href="search.php?searchterm=bright" class="d-block mb-4 h-100">
 			<img class="img-fluid img-thumbnail" src="Pics/Categories/cat2.png" style="height:210px">
 		  </a>
 		</div>
 		<div class="col-lg-3 col-md-4 col-xs-6">
-		  <a href="search.php?=small" class="d-block mb-4 h-100">
+		  <a href="search.php?searchterm=small" class="d-block mb-4 h-100">
 			<img class="img-fluid img-thumbnail" src="Pics/Categories/cat3.png" style="height:210px">
 		  </a>
 		</div>
 		<div class="col-lg-3 col-md-4 col-xs-6">
-		  <a href="search.php?=medium" class="d-block mb-4 h-100">
+		  <a href="search.php?searchterm=medium" class="d-block mb-4 h-100">
 			<img class="img-fluid img-thumbnail" src="Pics/Categories/cat4.png" style="height:210px">
 		  </a>
 		</div>
 		<div class="col-lg-3 col-md-4 col-xs-6">
-		  <a href="search.php?=large" class="d-block mb-4 h-100">
+		  <a href="search.php?searchterm=large" class="d-block mb-4 h-100">
 			<img class="img-fluid img-thumbnail" src="Pics/Categories/cat5.png" style="height:210px">
 		  </a>
 		</div>
 		<div class="col-lg-3 col-md-4 col-xs-6">
-		  <a href="search.php?=novelty" class="d-block mb-4 h-100">
+		  <a href="search.php?searchterm=novelty" class="d-block mb-4 h-100">
 			<img class="img-fluid img-thumbnail" src="Pics/Categories/cat6.png" style="height:210px">
 		  </a>
 		</div>
 		<div class="col-lg-3 col-md-4 col-xs-6">
-		  <a href="search.php?=men" class="d-block mb-4 h-100">
+		  <a href="search.php?searchterm=men" class="d-block mb-4 h-100">
 			<img class="img-fluid img-thumbnail" src="Pics/Categories/cat7.png" style="height:210px">
 		  </a>
 		</div>
 		<div class="col-lg-3 col-md-4 col-xs-6">
-		  <a href="search.php?=ladies" class="d-block mb-4 h-100">
+		  <a href="search.php?searchterm=ladies" class="d-block mb-4 h-100">
 			<img class="img-fluid img-thumbnail" src="Pics/Categories/cat8.png" style="height:210px">
 		  </a>
 		</div>
