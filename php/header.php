@@ -24,7 +24,7 @@
     </a>
       </div>
     <ul class=\"nav navbar-nav\" style=\"height:100px\">
-      <li><a href=\"/\" style=\"padding-top:40px; padding-bottom:40px\">Home</a></li>
+      <li><a href=\"index.php\" style=\"padding-top:40px; padding-bottom:40px\">Home</a></li>
       <li><a href=\"about.php\" style=\"padding-top:40px; padding-bottom:40px\">About</a></li>
       <li><a href=\"contact.php\" style=\"padding-top:40px; padding-bottom:40px\">Contact</a></li>
       <li><a href=\"stores.php\" style=\"padding-top:40px; padding-bottom:40px\">Stores</a></li>
