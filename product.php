@@ -1,5 +1,28 @@
 <?php session_start(); ?>
 
+<?php
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  if(!isset($_SESSION['username'])){
+    echo "<script>alert('You must be signed in to add to basket')</script>";
+  }
+  else{
+    include_once('php/db.php');
+    $query = "insert into basket (Customer_id, Product_id, Quantity)
+              values((select id from customer where email = '".$_SESSION['username']."'),
+		                 (select id from product where colour='".$_POST['color']."' and ProductType_id=".$_GET['id']." and size='".$_POST['size']."'),
+                      ".$_POST['quantity'].");";
+    $stmt = $mysql->prepare($query);
+    try{
+      $stmt->execute();
+    } catch( PDOException $e ){
+      echo $e->getMessage();
+    }
+  }
+}
+
+?>
+
 <!--
 
 Notes for the php dev.
@@ -72,7 +95,7 @@ The current populate page is just an example and is what will change
        var pairs = [];
 
        <?php
-          include 'php/db.php';
+          include_once('php/db.php');
           $query = "select * from producttype where id=".$_GET['id'].";";
           $stmt = $mysql->prepare($query);
           $productID = $_GET['id'];
@@ -171,7 +194,6 @@ The current populate page is just an example and is what will change
           <h3 class="col-md-6" style="text-align: center;">Materials</h3>
         </row>
         <form method="post">
-
           <row>
             <p class="col-md-6" style="height:120px;" id="description">
 
@@ -183,7 +205,7 @@ The current populate page is just an example and is what will change
             <div class="container col-md-6">
               <p class="col-md-3" style="text-align:right; font-size:120%; padding-top:7px;">Size:</p>
               <div class="container col-md-9">
-                <select class="form-control" id="sizes">
+                <select name="size" class="form-control" id="sizes">
 
                 </select>
               </div>
@@ -191,7 +213,7 @@ The current populate page is just an example and is what will change
             <div class="container col-md-6">
               <p class="col-md-3" style="text-align:right; font-size:120%; padding-top:7px;">Color:</p>
               <div class="container col-md-9">
-                <select class="form-control" id="colors">
+                <select name="color" class="form-control" id="colors">
 
                 </select>
               </div>
@@ -201,7 +223,7 @@ The current populate page is just an example and is what will change
             <div class="container col-md-6" style="padding-top:20px">
               <p class="col-md-4" style="text-align:right; font-size:120%; padding-top:7px;">Quantity:</p>
               <div class="col-md-8">
-                <input type="text" value="1" class="form-control" id="quantity">
+                <input name="quantity" type="text" value="1" class="form-control" id="quantity">
               </div>
             </div>
           </row>
