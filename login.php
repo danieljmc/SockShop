@@ -19,10 +19,12 @@
         try{
           $stmt->execute();
           $result = $stmt->fetch();
-          $password = $result['Password'];
-          if($_POST["password"]==$password){
-            $_SESSION["username"] = $_POST["username"];
-          }
+					if(!($_POST["password"]=="")){
+	          $password = $result['Password'];
+	          if($_POST["password"]==$password){
+	            $_SESSION["username"] = $_POST["username"];
+	          }
+					}
         } catch( PDOException $e ){
           echo $e->getMessage();
         }

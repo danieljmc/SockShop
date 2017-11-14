@@ -50,6 +50,11 @@ $(document).ready(function() {
     updateTotal();
   }
 
+  <?php
+    include_once('php/db.php');
+
+  ?>
+
   addItem("Sport Socks", "Small", 2, 10)
   addItem("Sport Socks", "Small", 2, 10)
   addItem("Sport Socks", "Small", 2, 10)
