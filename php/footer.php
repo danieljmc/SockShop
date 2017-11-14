@@ -30,7 +30,7 @@
 
 <!--Second part - Social media and copyright.-->
 <div class="container col-md-12">
-	<div class="text-center" style="margin-left:-25px">
+	<div class="text-center">
 		<a href="https://www.facebook.com"><i class="fa fa-facebook-square fa-3x social"></i></a>
 		<a href="https://twitter.com"><i class="fa fa-twitter-square fa-3x social"></i></a>
 		<a href="https://plus.google.com"><i class="fa fa-google-plus-square fa-3x social"></i></a>
