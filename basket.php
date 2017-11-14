@@ -73,6 +73,13 @@ $( document ).ready(function() {
   }
 
   <?php
+    if(isset($_SESSION['error'])){
+      echo "alert('There was not enough stock for this order');";
+      unset($_SESSION['error']);
+    }
+  ?>
+
+  <?php
     include_once('php/db.php');
     $query = "
     SELECT *

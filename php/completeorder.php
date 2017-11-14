@@ -30,25 +30,46 @@
     }
     foreach($result as $row){
       if($row['QuantCheck']==0){
-        $stockCheck==False;
+        $stockCheck=False;
       }
     }
   } catch (PDOExecption $e){
     echo $e->getMessage();
   }
 
-  if($stockCheck){
-    $query = "INSERT INTO 17ac3d19.order(CustomerID, Location_id, Status)
+  if($stockCheck==True){
+    $query1 = "INSERT INTO `order`(CustomerID, Location_id, Status)
               values((SELECT id from customer where Email='".$_SESSION['username']."'),".$_POST['locationID'].",'Placed')";
-    $stmt = $mysql->prepare($query);
+    $query2 = "select * from basket where customer_id=(select id from customer where email='".$_SESSION['username']."')";
+    $query3 = "delete from basket where customer_id=(select id from customer where email='".$_SESSION['username']."')";
+    $stmt1 = $mysql->prepare($query1);
+    $stmt2 = $mysql->prepare($query2);
+    $stmt3 = $mysql->prepare($query3);
     $newOrderID = 0;
     try{
-      $stmt->execute();
+      $stmt1->execute();
       $newOrderID = $mysql->lastInsertId();
+      $stmt2->execute();
+      $stmt3->execute();
+      $result1 = $stmt1->fetchAll();
+      $result2 = $stmt2->fetchAll();
+      $result3 = $stmt3->fetchAll();
+      foreach($result2 as $row){
+        $query = "insert into suborder(OrderID,ProductID,Quantity)
+                  values(".$newOrderID.",".$row['Product_id'].",".$row['Quantity'].")";
+        $stmt = $mysql->prepare($query);
+        $stmt->execute();
+        //var_dump($stmt->fetchAll());
+
+      }
     } catch( PDOExecption $e ){
       echo $e->getMessage();
     }
+    header('Location: ../index.php');
+    }else{
+      $_SESSION['error'] = True;
+      header('Location: ../basket.php');
 
-  }
+    }
 
 ?>
