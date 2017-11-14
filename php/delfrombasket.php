@@ -4,7 +4,7 @@
   $stmt = $mysql->prepare($query);
   try{
     $stmt->execute();
-    header( 'Location: basket.php' ) ;
+    header( 'Location: ../basket.php' ) ;
   } catch ( PDOException $e ){
     $e->getMessage();
   }
