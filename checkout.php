@@ -166,7 +166,7 @@ $(document).ready(function() {
   var postcodeLong;
   var postcodeLat;
   $( "#search" ).click(function() {
-    $.get( "http://api.postcodes.io/postcodes/"+$('#postcode').val().replace(/\s/g, ''))
+    $.get( "https://api.postcodes.io/postcodes/"+$('#postcode').val().replace(/\s/g, ''))
     .done(function(data) {
       postcodeLat = data.result.latitude;
       postcodeLong = data.result.longitude;
