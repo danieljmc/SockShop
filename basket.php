@@ -140,7 +140,7 @@ $( document ).ready(function() {
       <hr/>
 
       <div class="container col-md-12" style="text-align:center;">
-        <button type="button" class="btn btn-primary btn-md" id="continue" style="margin-top:30px;" onclick="window.location.href='/checkout.php'">Continue To Checkout</button>
+        <button type="button" class="btn btn-primary btn-md" id="continue" style="margin-top:30px;" onclick="window.location.href='checkout.php'">Continue To Checkout</button>
       </div>
     </div>
 

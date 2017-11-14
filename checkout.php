@@ -53,8 +53,28 @@ $(document).ready(function() {
   <?php
     include_once('php/db.php');
 
+    $query = "
+    select pt.ProductName, b.Quantity, p.size, pt.price  from basket b
+    inner join customer c
+	     on c.id = b.Customer_id
+    inner join product p
+	     on p.id = b.Product_id
+    inner join producttype pt
+	     on p.ProductType_id = pt.id
+    where Email = '".$_SESSION['username']."'";
+    $stmt = $mysql->prepare($query);
+    try{
+      $stmt->execute();
+      $result = $stmt->fetchAll();
+      foreach($result as $row){
+        echo("addItem('".$row['ProductName']."','".$row['size']."',".$row['Quantity'].",".$row['price'].");\n");
+      }
+    } catch( PDOException $e ){
+      echo $e->getMessage();
+    }
   ?>
 
+  /*addItem("Sport Socks", "Small", 2, 10)
   addItem("Sport Socks", "Small", 2, 10)
   addItem("Sport Socks", "Small", 2, 10)
   addItem("Sport Socks", "Small", 2, 10)
@@ -62,8 +82,7 @@ $(document).ready(function() {
   addItem("Sport Socks", "Small", 2, 10)
   addItem("Sport Socks", "Small", 2, 10)
   addItem("Sport Socks", "Small", 2, 10)
-  addItem("Sport Socks", "Small", 2, 10)
-  addItem("Sport Socks", "Small", 2, 10)
+  addItem("Sport Socks", "Small", 2, 10)*/
 
 
   function getDistances(stores, lat, long){
@@ -99,7 +118,7 @@ $(document).ready(function() {
   }
 
   function Store(id, lat, long, name, address){
-    this.id = idea;
+    this.id = id;
     this.long = long;
     this.lat = lat;
     this.name = name;
@@ -111,6 +130,7 @@ $(document).ready(function() {
 
   function selectStore(i) {
     return function() {
+      $('#locationID').val(i+1);
       $('#selectedstore').text(stores[i].name + ", "+stores[i].address)
     }
   }
@@ -158,6 +178,8 @@ $(document).ready(function() {
       alert( "postcode doesnt exist" );
     })
   });
+  var x = selectStore(0)
+  x();
 });
 </script>
 
@@ -226,7 +248,10 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCMiZs865Ub7z9aN2gKZrfcSF8
           <p id="subtotal">SubTotal: £20</p>
           <p id="discount">Discounts: £-6</p>
           <p id="total">Total: £14</p>
-          <button type="button" class="btn btn-primary btn-md" id="pay">Pay now with PayPal</button>
+          <form style="display-type:none;" method="post" action="php/completeorder.php">
+            <input name='locationID' id='locationID' hidden />
+            <button type="submit" class="btn btn-primary btn-md" id="pay">Pay now with PayPal</button>
+          </form>
         </div>
       </row>
       <row>
