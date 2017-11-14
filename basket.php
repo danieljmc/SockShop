@@ -93,6 +93,7 @@ $( document ).ready(function() {
       echo $e->getMessage();
     }
   ?>
+  updateTotal();
 });
 </script>
 
