@@ -68,28 +68,34 @@ $(document).ready(function() {
     $('#tablebody').empty()
     var searchcat = $('#searchcategory option:selected').text()
     var searchterm = $('#searchterm').val().toLowerCase()
+
     for (var i in stock){
       if(searchcat=="Product ID"){
-        if(stock[i].productID.toLowerCase()==searchterm){
+        //console.log("comparing ProductID")
+        if(stock[i].productID==searchterm){
           stock[i].addToTable()
         }
       }
       if(searchcat=="Product Type"){
+        //console.log("comparing Type")
         if(stock[i].type.toLowerCase()==searchterm){
           stock[i].addToTable()
         }
       }
       if(searchcat=="Manufacturer"){
+        //console.log("comparing Manufacturer")
         if(stock[i].manufacturer.toLowerCase()==searchterm){
           stock[i].addToTable()
         }
       }
       if(searchcat=="Colour"){
+        //console.log("comparing Color")
         if(stock[i].color.toLowerCase()==searchterm){
           stock[i].addToTable()
         }
       }
       if(searchcat=="Location"){
+        //console.log("comparing Locatio")
         if(stock[i].location.toLowerCase()==searchterm){
           stock[i].addToTable()
         }
@@ -121,7 +127,7 @@ $(document).ready(function() {
 		$result = $stmt->fetchAll();
 
 		foreach($result as $row) {
-			echo ("addItem(".$row['id'].",\"".$row['ProductName']."\",\"".$row['Company']."\",\"".$row['Colour']."\",\"".$row['Size']."\",".$row['Quantity'].",\"".$row['LocationName']."\")\n");
+			echo ("addItem('".$row['id']."',\"".$row['ProductName']."\",\"".$row['Company']."\",\"".$row['Colour']."\",\"".$row['Size']."\",".$row['Quantity'].",\"".$row['LocationName']."\")\n");
 		}
 	}
 	catch (PDOException $e)
@@ -156,7 +162,6 @@ $(document).ready(function() {
           <option>Product Type</option>
           <option>Manufacturer</option>
           <option>Colour</option>
-          <option>Size</option>
           <option>Location</option>
         </select>
       </div>
