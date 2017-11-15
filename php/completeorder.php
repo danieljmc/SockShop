@@ -57,7 +57,11 @@
       foreach($result2 as $row){
         $query = "insert into suborder(OrderID,ProductID,Quantity)
                   values(".$newOrderID.",".$row['Product_id'].",".$row['Quantity'].")";
+        $updatequery = "update productquantity set quantity = Quantity-".$row['Quantity']."
+                        where ProductID = ".$row['Product_id']." and LocationID = ".$_POST['locationID'];
         $stmt = $mysql->prepare($query);
+        $stmt->execute();
+        $stmt = $mysql->prepare($updatequery);
         $stmt->execute();
         //var_dump($stmt->fetchAll());
 
