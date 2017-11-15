@@ -117,6 +117,7 @@
 
 
 <?php
+function(testfun){
 include('php/db.php');
 
 if (!empty($_POST["username"])) {
@@ -128,15 +129,20 @@ $repname = $_POST['rep'];
 $password = $_POST['password'];
 $query = "INSERT INTO manufacturer(Email, Password, Company,  RepName, CountryOfOrigin, Description) VALUES('$email', '$password', '$companyname', '$repname', '$country', '$description')";
 
-$stmt = $mysql->prepare($query);
+
 try{
+$stmt = $mysql->prepare($query);
 $stmt->execute();
 $result = $stmt->fetch();
-
+$query = "INSERT INTO manufacturer(Email, Password, Company,  RepName, CountryOfOrigin, Description) VALUES('$email', '$password', '$companyname', '$repname', '$country', '$description')";
 }catch( PDOException $e ){
   echo $e->getMessage();
 }
 
 header("location: index.php");
+}
+}
+if(array_key_exists('test',$_POST)){
+  testfun();
 }
 ?>
