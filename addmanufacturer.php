@@ -126,14 +126,15 @@ $country = $_POST['origin'];
 $description = $_POST['desc'];
 $repname = $_POST['rep'];
 $password = $_POST['password'];
-
-try{
-
 $query = "INSERT INTO manufacturer(Email, Password, Company,  RepName, CountryOfOrigin, Description) VALUES('$email', '$password', '$companyname', '$repname', '$country', '$description')";
 
-mysql->exec($query);
-}catch(PDOException e){
+$stmt = $mysql->prepare($query);
+try{
+$stmt->execute();
+$result = $stmt->fetch();
 
+}catch( PDOException $e ){
+  e->getMessage();
 }
 
 header("location: index.php");
