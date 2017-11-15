@@ -117,7 +117,7 @@
 
 
 <?php
-function(testfun){
+function testfun(){
 include('php/db.php');
 
 if (!empty($_POST["username"])) {
@@ -142,7 +142,7 @@ $query = "INSERT INTO manufacturer(Email, Password, Company,  RepName, CountryOf
 header("location: index.php");
 }
 }
-if(array_key_exists('test',$_POST)){
+if(array_key_exists('change',$_POST)){
   testfun();
 }
 ?>
