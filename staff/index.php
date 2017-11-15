@@ -1,8 +1,76 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <?php include('../php/head.php'); ?>
 </head>
+
+<script>
+$('document').ready(function(){
+  $('#vieworders').css('background-color', 'grey');
+
+  var orders = [];
+
+  class Order{
+    constructor(id, CustomerName, Status){
+      this.id = id
+      this.CustomerName = CustomerName
+      this.Status = Status
+      this.suborders = []
+      orders.push(this);
+    }
+
+    addTo(ProductName,Quantity){
+      this.suborders.push([ProductName,Quantity]);
+    }
+
+    addToString(string){
+      if(this.suborders.length!=0){
+        var temp = "<tr>",
+          "<td>"+this.id+"</td>",
+          "<td>"+this.CustomerName+"</td>",
+          "<td>"+this.suborders[0][0]+"</td>",
+          "<td>"+this.suborders[0][1]+"</td>",
+          "<td>",
+            "<select class=\"form-control\" id=\"sel1\">",
+              "<option>Placed</option>",
+              "<option>Ready</option>",
+              "<option>Completed</option>",
+            "</select>",
+          "</td>",
+        "</tr>"
+        string += temp.join("")
+      }
+      for(var i=1;i<this.suborders.length;i++){
+        var temp ="<tr>",
+          "<td></td>",
+          "<td></td>",
+          "<td>"+this.suborders[i][0]+"</td>",
+          "<td>"+this.suborders[i][1]+"</td>",
+          "<td></td>",
+        "</tr>"
+        string += temp.join("")
+      }
+    }
+  }
+
+  function updateTable(){
+    $('#tablebody').empty();
+    var htmlstring= "";
+
+    for(var i=0;i<orders.length;i++){
+      orders[i].addToString(htmlstring);
+    }
+    $('#tablebody').append(htmlstring);
+  }
+
+  var temp = new Order(1,"Gavin Henderson","Placed");
+  temp.addTo(["Smelly Socks",10])
+
+  updateTable();
+});
+</script>
 
 <body>
   <div class="container">
@@ -11,26 +79,7 @@
     <?php include('../php/header.php'); ?>
 
     <!-- Options tab -->
-    <div class="container col-md-3" style="padding-top:60px; padding-bottom:60px;">
-      <div class="container col-md-12" style="padding-top:10px; padding-bottom: 10px; font-size:120%; background-color:grey;">
-        <p>View Placed Orders</p>
-      </div>
-      <div class="container col-md-12" style="padding-top:10px; padding-bottom: 10px; font-size:120%; background-color:#d3d3d3;">
-        <p>Check Stock</p>
-      </div>
-      <div class="container col-md-12" style="padding-top:10px; padding-bottom: 10px; font-size:120%; background-color:#d3d3d3;">
-        <p>Order New Stock</p>
-      </div>
-      <div class="container col-md-12" style="padding-top:10px; padding-bottom: 10px; font-size:120%; background-color:#d3d3d3;">
-        <p>Recieve Stock</p>
-      </div>
-      <div class="container col-md-12" style="padding-top:10px; padding-bottom: 10px; font-size:120%; background-color:#d3d3d3;">
-        <p>Edit Account</p>
-      </div>
-      <div class="container col-md-12" style="padding-top:10px; padding-bottom: 10px; font-size:120%; background-color:#d3d3d3;">
-        <p>Edit Products</p>
-      </div>
-    </div>
+    <?php include('php/sidepanel.php'); ?>
 
     <!-- Selected Option -->
     <div class="container col-md-9 pre-scrollable" style="background-color:#d3d3d3; max-height:600px; height:600px">
@@ -44,7 +93,7 @@
             <th>Status</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody id="tablebody">
           <tr>
             <td>1</td>
             <td>Gavin Henderson</td>
