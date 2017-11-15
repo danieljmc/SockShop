@@ -26,8 +26,9 @@ $('document').ready(function(){
     }
 
     addToString(string){
+      console.log(this)
       if(this.suborders.length!=0){
-        var temp = "<tr>",
+        var temp = ["<tr>",
           "<td>"+this.id+"</td>",
           "<td>"+this.CustomerName+"</td>",
           "<td>"+this.suborders[0][0]+"</td>",
@@ -39,19 +40,20 @@ $('document').ready(function(){
               "<option>Completed</option>",
             "</select>",
           "</td>",
-        "</tr>"
+        "</tr>"]
         string += temp.join("")
       }
       for(var i=1;i<this.suborders.length;i++){
-        var temp ="<tr>",
+        var temp = ["<tr>",
           "<td></td>",
           "<td></td>",
           "<td>"+this.suborders[i][0]+"</td>",
           "<td>"+this.suborders[i][1]+"</td>",
           "<td></td>",
-        "</tr>"
+        "</tr>"]
         string += temp.join("")
       }
+      return string
     }
   }
 
@@ -60,13 +62,51 @@ $('document').ready(function(){
     var htmlstring= "";
 
     for(var i=0;i<orders.length;i++){
-      orders[i].addToString(htmlstring);
+      htmlstring = orders[i].addToString(htmlstring);
     }
+    console.log(htmlstring)
     $('#tablebody').append(htmlstring);
   }
 
-  var temp = new Order(1,"Gavin Henderson","Placed");
-  temp.addTo(["Smelly Socks",10])
+  <?php
+
+  include_once('../php/db.php');
+
+  $query = "Select * from suborder so
+  inner join `order` o
+  on so.OrderID = o.ID
+  inner join customer c
+	on c.ID = o.CustomerID
+  inner join product p
+	on so.ProductID = p.id
+  inner join producttype pt
+	on pt.id = p.ProductType_id
+  where Status !='Completed'";
+  $stmt = $mysql->prepare($query);
+  try{
+    $stmt->execute();
+    $prevOrder = -1;
+    //echo "var temp = new Order("+$prevOrder['OrderID']+",'"+$prevOrder['Name']+"','Placed');\n";
+    $result = $stmt->fetchAll();
+    foreach($result as $row){
+      if($row['OrderID']!=$prevOrder){
+        $prevOrder = $row['OrderID'];
+        echo "var temp = new Order(".$row['OrderID'].",'".$row['Name']."','Placed');\n";
+        echo "temp.addTo('".$row['ProductName']."',".$row['Quantity'].");\n";
+      }
+      else{
+        echo "temp.addTo('".$row['ProductName']."',".$row['Quantity'].");\n";
+      }
+    }
+  } catch( PDOException $e ){
+    $e->getMessage();
+  }
+
+  ?>
+
+  //var temp = new Order(1,"Gavin Henderson","Placed");
+  //temp.addTo("Smelly Socks",10)
+  //temp.addTo("another test",14)
 
   updateTable();
 });

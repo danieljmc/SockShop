@@ -60,6 +60,8 @@ $(document).ready(function() {
     new StockItem(productid, type, manufacturer, color, size, location, quantity)
   }
 
+  $('#checkstock').css('background-color','grey');
+
   $('#search').click(function(){
     $('#tablebody').empty()
     var searchcat = $('#searchcategory option:selected').text()
@@ -96,25 +98,25 @@ $(document).ready(function() {
 
   <?php
 	include '../php/db.php';
-	
+
 	//Below are the tables and the columns taken from them
 	//	product - Size, Colour
 	//	producttype - Name, id
 	//	productquantity - Quantity
 	//	manufacturer - Company name
 	//	location - location name
-	
-	$query = "SELECT producttype.id, producttype.ProductName, manufacturer.Company, product.Size, product.Colour, productquantity.Quantity, location.LocationName FROM ((((product 
+
+	$query = "SELECT producttype.id, producttype.ProductName, manufacturer.Company, product.Size, product.Colour, productquantity.Quantity, location.LocationName FROM ((((product
 		INNER JOIN producttype ON product.ProductType_id = producttype.id)
 		INNER JOIN productquantity ON product.id = productquantity.ProductID)
         INNER JOIN location ON productquantity.locationID = location.id)
         INNER JOIN manufacturer ON producttype.Manufacturer_id = manufacturer.id)";
-	
+
 	$stmt = $mysql->prepare($query);
 
 	try{
-		$stmt->execute(); 
-		$result = $stmt->fetchAll(); 
+		$stmt->execute();
+		$result = $stmt->fetchAll();
 
 		foreach($result as $row) {
 			echo ("addItem(".$row['id'].",\"".$row['ProductName']."\",\"".$row['Company']."\",\"".$row['Colour']."\",\"".$row['Size']."\",".$row['Quantity'].",\"".$row['LocationName']."\")\n");
@@ -122,9 +124,9 @@ $(document).ready(function() {
 	}
 	catch (PDOException $e)
 	{
-		echo $e->getMessage(); 
+		echo $e->getMessage();
 	}
-		
+
   ?>
   //addItem(1,"sock","nike","black","small",100,"Dundee")
 
