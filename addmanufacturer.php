@@ -134,7 +134,7 @@ $stmt->execute();
 $result = $stmt->fetch();
 
 }catch( PDOException $e ){
-  e->getMessage();
+  echo $e->getMessage();
 }
 
 header("location: index.php");
