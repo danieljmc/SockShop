@@ -1,5 +1,10 @@
 <?php
-session_start(); 
+session_start();
+
+if(isset($_SESSION["staffusername"])){
+  header('Location: staff/index.php');
+}
+
 include('php/db.php');
 if (!empty($_POST["username"])) {
 $query = "select Password from staffmember where Email=\"".$_POST["username"]."\";";
@@ -10,7 +15,8 @@ $stmt = $mysql->prepare($query);
       $result = $stmt->fetch();
       $password = $result['Password'];
       if($_POST["password"]==$password){
-        $_SESSION["username"] = $_POST["username"];
+        $_SESSION["staffusername"] = $_POST["username"];
+        header('Location: staff/index.php');
       }
     } catch( PDOException $e ){
       echo $e->getMessage();
@@ -39,12 +45,12 @@ $stmt = $mysql->prepare($query);
         <form action="stafflogin.php" method="POST">
           <div class="form-group">
             <?php
-              if(isset($_SESSION["username"])){
+              if(isset($_SESSION["staffusername"])){
                 echo "<p style=\"text-align:center\">Logged In!</p>";
               }
 
               if (!empty($_POST["username"])) {
-                if(!isset($_SESSION["username"])){
+                if(!isset($_SESSION["staffusername"])){
                   echo "<p style=\"text-align:center\">Incorrect Password!</p>";
                 }
               }
@@ -57,7 +63,6 @@ $stmt = $mysql->prepare($query);
             <input type="password" class="form-control" id="password" placeholder="Enter your password" name="password">
           </div>
           <button type="submit" class="btn btn-default">Login</button>
-          <a href="createaccount.php">or Create a New Account</a>
         </form>
       </div>
     </div>
@@ -69,6 +74,6 @@ $stmt = $mysql->prepare($query);
 
     <!-- Footer -->
     <?php include('php/footer.php'); ?>
-              
+
 </body>
 </html>

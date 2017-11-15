@@ -1,12 +1,19 @@
 <?php
 
   $logoutlink = "";
-
-
   $loggedin = False;
+
+  if(isset($_SESSION["staffusername"])){
+    unset($_SESSION['username']);
+    $loggedin = True;
+  }
+
+
+
   if(isset($_SESSION["username"])){
     $loggedin = True;
   }
+
 
   $redirect = "Login";
   $redirect2 = "createaccount";
@@ -20,7 +27,7 @@
     <div class=\"container-fluid\">
       <div class=\"navbar-header\">
          <a class=\"navbar-brand\" rel=\"home\" href=\"index.php\" title=\"SockDirect\" style=\"height:100px\">
-    <img style=\"width:100px; margin:-15px; padding: 3px 3px\" src=\"Pics/logo.png\">
+    <img style=\"width:100px; margin:-15px; padding: 3px 3px\" src=\"../Pics/logo.png\">
     </a>
       </div>
     <ul class=\"nav navbar-nav\" style=\"height:100px\">
