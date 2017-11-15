@@ -120,7 +120,7 @@
 include('php/db.php');
 
 if (!empty($_POST["username"])) {
-$email = $_POST['email']
+$email = $_POST['email'];
 $companyname = $_POST['companyname'];
 $country = $_POST['origin'];
 $description = $_POST['desc'];
