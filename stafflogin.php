@@ -2,7 +2,7 @@
 session_start();
 
 if(isset($_SESSION["staffusername"])){
-  header('Location: staff/index.php');
+  header('Location: staffindex.php');
 }
 
 include('php/db.php');
@@ -16,7 +16,7 @@ $stmt = $mysql->prepare($query);
       $password = $result['Password'];
       if($_POST["password"]==$password){
         $_SESSION["staffusername"] = $_POST["username"];
-        header('Location: staff/index.php');
+        header('Location: staffindex.php');
       }
     } catch( PDOException $e ){
       echo $e->getMessage();

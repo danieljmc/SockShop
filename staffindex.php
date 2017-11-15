@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <?php include('../php/head.php'); ?>
+  <?php include('php/head.php'); ?>
 </head>
 
 <script>
@@ -70,7 +70,7 @@ $('document').ready(function(){
 
   <?php
 
-  include_once('../php/db.php');
+  include_once('php/db.php');
 
   $query = "Select * from suborder so
   inner join `order` o
@@ -116,7 +116,7 @@ $('document').ready(function(){
   <div class="container">
 
     <!-- The navbar -->
-    <?php include('../php/header.php'); ?>
+    <?php include('php/header.php'); ?>
 
     <!-- Options tab -->
     <?php include('php/sidepanel.php'); ?>
@@ -159,7 +159,7 @@ $('document').ready(function(){
     </div>
 
     <!-- Footer -->
-    <?php include('../php/footer.php'); ?>
+    <?php include('php/footer.php'); ?>
 
 </div>
 </body>

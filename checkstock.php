@@ -1,3 +1,5 @@
+<? session_start(); ?>
+
 <!--
 
 The search on this page is totally front end so just add the entire stock table
@@ -8,7 +10,7 @@ there is an add item function that should be used
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <?php include('../php/head.php'); ?>
+  <?php include('php/head.php'); ?>
 </head>
 
 <script>
@@ -97,7 +99,7 @@ $(document).ready(function() {
 
 
   <?php
-	include '../php/db.php';
+	include 'php/db.php';
 
 	//Below are the tables and the columns taken from them
 	//	product - Size, Colour
@@ -138,7 +140,7 @@ $(document).ready(function() {
   <div class="container">
 
     <!-- The navbar -->
-	<?php include('../php/header.php'); ?>
+	<?php include('php/header.php'); ?>
 
     <!-- Options tab -->
     <?php include('php/sidepanel.php'); ?>
@@ -180,7 +182,7 @@ $(document).ready(function() {
       </div>
     </div>
 		<!-- FOOTER -->
-       <?php include('../php/footer.php'); ?>
+       <?php include('php/footer.php'); ?>
 
     </div>
     </body>

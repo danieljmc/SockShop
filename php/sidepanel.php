@@ -1,5 +1,5 @@
 <div class="container col-md-3" style="padding-top:60px; padding-bottom:60px;">
-  <a href="index.php"><div id="vieworders" class="container col-md-12" style="padding-top:10px; padding-bottom: 10px; font-size:120%; background-color:#d3d3d3;">
+  <a href="staffindex.php"><div id="vieworders" class="container col-md-12" style="padding-top:10px; padding-bottom: 10px; font-size:120%; background-color:#d3d3d3;">
     <p>View Placed Orders</p>
   </div></a>
   <a href="checkstock.php"><div id="checkstock" class="container col-md-12" style="padding-top:10px; padding-bottom: 10px; font-size:120%; background-color:#d3d3d3;">
@@ -19,7 +19,7 @@
   </div>
 
   <?php
-  include('../php/db.php');
+  include_once('db.php');
   $query = "SELECT Admin FROM staffmember where Email='".$_SESSION['staffusername']."'";
   $stmt = $mysql->prepare($query);
   $isAdmin = False;
