@@ -2,9 +2,9 @@
   <a href="index.php"><div id="vieworders" class="container col-md-12" style="padding-top:10px; padding-bottom: 10px; font-size:120%; background-color:#d3d3d3;">
     <p>View Placed Orders</p>
   </div></a>
-  <div id="checkstock" class="container col-md-12" style="padding-top:10px; padding-bottom: 10px; font-size:120%; background-color:#d3d3d3;">
+  <a href="checkstock.php"><div id="checkstock" class="container col-md-12" style="padding-top:10px; padding-bottom: 10px; font-size:120%; background-color:#d3d3d3;">
     <p>Check Stock</p>
-  </div>
+  </div></a>
   <div id="newstock" class="container col-md-12" style="padding-top:10px; padding-bottom: 10px; font-size:120%; background-color:#d3d3d3;">
     <p>Order New Stock</p>
   </div>
