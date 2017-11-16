@@ -83,7 +83,7 @@
       $('#locations').empty();
 
       for(var i = 0;i<stores.length;i++){
-        var newLocation = "<div class=\"container col-md-12 well\" id=\"location"+i+"\" style = \"background-color:lightgray; padding-top:10px; font-size:120%\"><p>City: "+stores[i].name+"</p><p>Address: "+stores[i].address+"</p><p>Distance: "+stores[i].distanceText +"</p><p>Travel Time: "+stores[i].durationText+"</p></div>"
+        var newLocation = "<div class=\"container col-md-12 well\" id=\"location"+i+"\" style = \"background-color:#ffecd8; padding-top:10px; font-size:120%\"><p>City: "+stores[i].name+"</p><p>Address: "+stores[i].address+"</p><p>Distance: "+stores[i].distanceText +"</p><p>Travel Time: "+stores[i].durationText+"</p></div>"
         $('#locations').append(newLocation);
       }
     }
@@ -118,7 +118,7 @@
         var sorted = sortStores(stores);
       })
       .fail(function() {
-        alert( "postcode doesnt exist" );
+        alert( "The postcode you have entered was not recognised." );
       })
     });
   });
