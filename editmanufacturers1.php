@@ -97,7 +97,7 @@ $(document).ready(function() {
           <button type="button" class="btn btn-primary btn-md" id="delete" style="width:100%">Delete</button>
         </div>
         <div class="container col-md-6" style="text-align:right;">
-          <button type="button" class="btn btn-primary btn-md" id="add">Add a New Manufacturer</button>
+          <button type="button" class="btn btn-primary btn-md" id="add" onclick="window.location.href='addmanufacturer.php'">Add a New Manufacturer</button>
         </div>
       </div>
       <div class="container col-md-12 pre-scrollable" style="background-color:#d3d3d3; max-height:600px; height:600px">
