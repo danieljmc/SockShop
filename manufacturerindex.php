@@ -21,20 +21,12 @@ if(isset($_SESSION['username'])) {
     <!-- Options tab -->
     <div class="container col-md-3" style="padding-top:60px; padding-bottom:60px;">
       <div class="container col-md-12" style="padding-top:10px; padding-bottom: 10px; font-size:120%; background-color:gray;">
-        <p>View Orders</p>
+        <p><a href="manufacturerindex.php">View Orders</a></p>
       </div>
     </div>
 
     <!-- Check Stock -->
     <div class="container col-md-9" style="background-color:#d3d3d3; height:620px; padding-top:20px; text-align:center;">
-      <div class="container col-md-12" style="padding-top:15px; padding-bottom:15px;">
-        <div class="col-md-3 container">
-          <input type="text" placeholder="Order ID" class="form-control" id="orderID">
-        </div>
-        <div class="col-md-2 container">
-          <button type="button" class="btn btn-primary btn-md" id="view" style="width:100%">View</button>
-        </div>
-      </div>
       <div class="container col-md-12 pre-scrollable" style="background-color:#d3d3d3; max-height:600px; height:600px">
         <table class="table table-bordered col-md-12">
           <thead>

@@ -26,7 +26,7 @@ $result = $query->fetch();
     <!-- Options tab -->
     <div class="container col-md-3" style="padding-top:60px; padding-bottom:60px;">
       <div class="container col-md-12" style="padding-top:10px; padding-bottom: 10px; font-size:120%; background-color:gray;">
-        <p>View Orders</p>
+        <p><a href="manufacturerindex.php">View Orders</a></p>
       </div>
     </div>
 
@@ -48,10 +48,13 @@ $result = $query->fetch();
         <form action="manufacturerorder.php" method="post">
           <?php $_POST['id'] = $_GET['id']; ?>
           <div class="btn-group" data-toggle="buttons">
-          <label class="btn btn-primary active">
+            <label class="btn btn-success">
+              <input type="radio" name="options" value="Sent" id="sent" autocomplete="on" checked> Sent</input>
+            </label>
+          <label class="btn btn-secondary active">
             <input type="radio" name="options" value="Accepted" id="accept" autocomplete="on" checked> Accept</input>
           </label>
-          <label class="btn btn-primary">
+          <label class="btn btn-danger">
             <input type="radio" name="options" value="Declined" id="decline" autocomplete="off"> Decline </input>
           </label>
         </div>
