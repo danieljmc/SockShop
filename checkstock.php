@@ -114,7 +114,7 @@ $(document).ready(function() {
 	//	manufacturer - Company name
 	//	location - location name
 
-	$query = "SELECT producttype.id, producttype.ProductName, manufacturer.Company, product.Size, product.Colour, productquantity.Quantity, location.LocationName FROM ((((product
+	$query = "SELECT product.id, producttype.ProductName, manufacturer.Company, product.Size, product.Colour, productquantity.Quantity, location.LocationName FROM ((((product
 		INNER JOIN producttype ON product.ProductType_id = producttype.id)
 		INNER JOIN productquantity ON product.id = productquantity.ProductID)
         INNER JOIN location ON productquantity.locationID = location.id)
