@@ -11,6 +11,8 @@
 $(document).ready(function() {
   var manufacturerArray = []
 
+  $('#editmanufacturers').css('background-color','grey')
+
   class ManItem{
     constructor(manID, manName, manRep){
       this.manID = manID
@@ -38,26 +40,26 @@ $(document).ready(function() {
       }
     }
   }
-  
+
    function addItem(manID, manName, manRep){
     new ManItem(manID, manName, manRep)
   }
 
 
 
- 
+
 
   <?php
-  
+
 		include './php/db.php';
-	
+
 		$query = "SELECT id, Company, RepName FROM manufacturer";
-	
+
 		$stmt = $mysql->prepare($query);
 
 		try{
-			$stmt->execute(); 
-			$result = $stmt->fetchAll(); 
+			$stmt->execute();
+			$result = $stmt->fetchAll();
 
 			foreach($result as $row) {
 				echo ("addItem(".$row['id'].",\"".$row['Company']."\",\"".$row['RepName']."\")\n");
@@ -65,9 +67,9 @@ $(document).ready(function() {
 		}
 		catch (PDOException $e)
 		{
-			echo $e->getMessage(); 
+			echo $e->getMessage();
 		}
-	
+
 	?>
 })
 

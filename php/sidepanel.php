@@ -37,9 +37,9 @@
     echo "<div id=\"editaccounts\" class=\"container col-md-12\" style=\"padding-top:10px; padding-bottom: 10px; font-size:120%; background-color:#d3d3d3;\">
       <p>Edit Accounts</p>
     </div>
-    <div id=\"editmanufacturers\" class=\"container col-md-12\" style=\"padding-top:10px; padding-bottom: 10px; font-size:120%; background-color:#d3d3d3;\">
+    <a href='editmanufacturers1.php'><div id=\"editmanufacturers\" class=\"container col-md-12\" style=\"padding-top:10px; padding-bottom: 10px; font-size:120%; background-color:#d3d3d3;\">
       <p>Edit Manufacturers</p>
-    </div>";
+    </div></a>";
   }
 
   ?>
