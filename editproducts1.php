@@ -3,11 +3,66 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <?php include('php/head.php'); ?>
+  <?php include('php/head.php'); var_dump($_POST) ?>
 </head>
 <script>
 $('document').ready(function(){
+  $('#delete').click(function(){
+    var form = $('<form method="post">' +
+             '<input type="hidden" name="id" value="' + $('productID').text() + '"></form>');
+    $(form).submit();
+    console.log($('productID').val())
+  });
+
   $('#editproducts').css('background-color','gray');
+  products = []
+  class Product{
+    constructor(id,name,price){
+      this.id = id
+      this.name = name
+      this.price = price
+      products.push(this)
+    }
+
+    getString(){
+      return [
+        "<tr>",
+          "<td>"+this.id+"</td>",
+          "<td>"+this.name+"</td>",
+          "<td>£"+this.price+"</td>",
+        "</tr>"
+      ].join("")
+    }
+  }
+
+  function updateTable(){
+    $('#tablebody').empty();
+    var html = ""
+    for(var i =0;i<products.length;i++){
+      html += products[i].getString()
+    }
+    $('#tablebody').append(html);
+  }
+
+  <?php
+  include('php/db.php');
+
+  $query = "SELECT id, ProductName, Price FROM producttype";
+
+  $stmt = $mysql->prepare($query);
+  try{
+    $stmt->execute();
+    $result = $stmt->fetchAll();
+    foreach($result as $row){
+      echo "new Product(".$row['id'].",'".$row['ProductName']."',".$row['Price'].");\n";
+    }
+  }catch(PDOException $e){
+    echo $e->getMessage();
+  }
+
+  ?>
+
+  updateTable();
 });
 </script>
 <body>
@@ -44,7 +99,7 @@ $('document').ready(function(){
               <th>Price</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody id="tablebody">
             <tr>
               <td>0</td>
               <td>Colorful socks</td>
