@@ -83,7 +83,7 @@
       $('#locations').empty();
 
       for(var i = 0;i<stores.length;i++){
-        var newLocation = "<div class=\"container col-md-12 well\" id=\"location"+i+"\" style = \"background-color:grey; padding-top:10px; font-size:120%\"><p>City: "+stores[i].name+"</p><p>Address: "+stores[i].address+"</p><p>Distance: "+stores[i].distanceText +"</p><p>Travel Time: "+stores[i].durationText+"</p></div>"
+        var newLocation = "<div class=\"container col-md-12 well\" id=\"location"+i+"\" style = \"background-color:#ffecd8; padding-top:10px; font-size:120%\"><p>City: "+stores[i].name+"</p><p>Address: "+stores[i].address+"</p><p>Distance: "+stores[i].distanceText +"</p><p>Travel Time: "+stores[i].durationText+"</p></div>"
         $('#locations').append(newLocation);
       }
     }
@@ -100,7 +100,7 @@
 
     var stores = [];
     stores.push(new Store(56.459101, -2.972326, "Dundee", "Nethergate"));
-    stores.push(new Store(55.954064, -3.203514, "Edinburgh", "Princess Street"));
+    stores.push(new Store(55.954064, -3.203514, "Edinburgh", "Princes Street"));
     stores.push(new Store(55.861392, -4.248592, "Glasgow", "George Square"));
     stores.push(new Store(57.146151, -2.100288, "Aberdeen", "Union Street"));
 
@@ -118,7 +118,7 @@
         var sorted = sortStores(stores);
       })
       .fail(function() {
-        alert( "postcode doesnt exist" );
+        alert( "The postcode you have entered was not recognised." );
       })
     });
   });
@@ -137,7 +137,7 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCMiZs865Ub7z9aN2gKZrfcSF8
     <row>
 
       <!-- Locations -->
-      <div class="container col-md-4" style="background-color:#d3d3d3; height:600px">
+      <div class="container col-md-4" style="background-color:#f7c986; height:600px">
         <row>
           <h3 class="col-12-md" style="text-align:center;">Find Locations</h3>
         </row>
@@ -151,8 +151,8 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCMiZs865Ub7z9aN2gKZrfcSF8
           </div>
         </row>
         <row>
-          <div class="container col-md-12 pre-scrollable" id="locations" style="padding-top:10px; height:100%; max-height: 500px">
-            <div class="container col-md-12 well" id="location1" style = "background-color:grey; padding-top:10px; font-size:120%">
+          <div class="container col-md-12 pre-scrollable" id="locations" style="padding-top:10px; height:100%; max-height: 475px">
+            <div class="container col-md-12 well" id="location1" style = "background-color:black; padding-top:10px; font-size:120%">
             </div>
           </div>
         </row>

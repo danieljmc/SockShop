@@ -26,18 +26,20 @@ $('document').ready(function(){
     }
 
     addToString(string){
-      console.log(this)
+      //console.log(this)
       if(this.suborders.length!=0){
+
+
         var temp = ["<tr>",
           "<td>"+this.id+"</td>",
           "<td>"+this.CustomerName+"</td>",
           "<td>"+this.suborders[0][0]+"</td>",
           "<td>"+this.suborders[0][1]+"</td>",
           "<td>",
-            "<select class=\"form-control\" id=\"sel1\">",
-              "<option>Placed</option>",
-              "<option>Ready</option>",
-              "<option>Completed</option>",
+            "<select class=\"form-control\" id=\"sel"+this.id+"\">",
+              "<option value='1'>Placed</option>",
+              "<option value='2'>Ready</option>",
+              "<option value='3'>Completed</option>",
             "</select>",
           "</td>",
         "</tr>"]
@@ -58,14 +60,45 @@ $('document').ready(function(){
   }
 
   function updateTable(){
+    console.log(orders)
     $('#tablebody').empty();
     var htmlstring= "";
 
     for(var i=0;i<orders.length;i++){
       htmlstring = orders[i].addToString(htmlstring);
     }
-    console.log(htmlstring)
+
+
+
+    function dropDownChange(i,selectdropdown){
+      return function(){
+        $('body').html('<form action="php/changestatus.php" name="changestatus" method="post" style="display:none;"><input type="text" name="orderID" value="' + orders[i].id + '" /><input type="text" name="status" value="' + $(selectdropdown).find(":selected").text() + '" /></form>');
+        document.forms['changestatus'].submit();
+
+      }
+    }
+
     $('#tablebody').append(htmlstring);
+    for(var i =0;i<orders.length;i++){
+      $('#sel'+orders[i].id).change(dropDownChange(i,'#sel'+orders[i].id));
+    }
+
+    for(var i=0;i<orders.length;i++){
+      if(orders[i].Status.toLowerCase()=="placed"){
+        $('#sel'+orders[i].id).val(1);
+        console.log("placed")
+      }else if(orders[i].Status.toLowerCase()=="ready"){
+        $('#sel'+orders[i].id).val(2);
+        console.log("ready")
+      }else if(orders[i].Status.toLowerCase()=="complteted"){
+        $('#sel'+orders[i].id).val(3);
+        console.log("completed")
+
+      }
+      else{
+        console.log("no match");
+      }
+    }
   }
 
   <?php
@@ -91,7 +124,7 @@ $('document').ready(function(){
     foreach($result as $row){
       if($row['OrderID']!=$prevOrder){
         $prevOrder = $row['OrderID'];
-        echo "var temp = new Order(".$row['OrderID'].",'".$row['Name']."','Placed');\n";
+        echo "var temp = new Order(".$row['OrderID'].",'".$row['Name']."','".$row["Status"]."');\n";
         echo "temp.addTo('".$row['ProductName']."',".$row['Quantity'].");\n";
       }
       else{
