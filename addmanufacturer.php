@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,10 +12,10 @@
 
     <!-- The navbar -->
     <?php include('php/header.php'); ?>
-	
+
     <!-- Options tab -->
-    <?php include('./php/sidepanel.php'); ?>
-	
+    <?php include('php/sidepanel.php'); ?>
+
     <!-- Check Stock -->
     <div class="container col-md-9" style="background-color:#d3d3d3; height:420px; margin-top:60px; padding-top:20px; text-align:center;">
       <div class="container col-md-6">
@@ -33,7 +35,7 @@
       <div class="container col-md-12" style="text-align: center">
         <form method="post">
         <button type="button" class="btn btn-primary btn-md" id="change" style="margin: auto; width:20%; margin-top: 15px;">Submit Changes</button>
-        </form>   
+        </form>
     </div>
     </div>
 
