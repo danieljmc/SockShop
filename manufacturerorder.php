@@ -1,6 +1,7 @@
 <?php
 session_start();
 include_once('php/db.php');
+if (!isset($_SESSION['manusername'])) header("Location: index.php");
 if (!isset($_GET['id'])) {
   header("Location: manufacturerindex.php");
 }
