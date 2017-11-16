@@ -34,9 +34,9 @@
   }
 
   if($isAdmin){
-    echo "<div id=\"editaccounts\" class=\"container col-md-12\" style=\"padding-top:10px; padding-bottom: 10px; font-size:120%; background-color:#d3d3d3;\">
+    echo "<a href='editaccounts1.php'><div id=\"editaccounts\" class=\"container col-md-12\" style=\"padding-top:10px; padding-bottom: 10px; font-size:120%; background-color:#d3d3d3;\">
       <p>Edit Accounts</p>
-    </div>
+    </div></a>
     <a href='editmanufacturers.php'><div id=\"editmanufacturers\" class=\"container col-md-12\" style=\"padding-top:10px; padding-bottom: 10px; font-size:120%; background-color:#d3d3d3;\">
       <p>Edit Manufacturers</p>
     </div></a>";
