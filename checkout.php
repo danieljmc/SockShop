@@ -49,6 +49,7 @@ $(document).ready(function() {
     $('#tablebody').append(newItem.join(""));
     updateTotal();
   }
+  updateTotal();
 
   <?php
     include_once('php/db.php');
