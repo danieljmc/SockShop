@@ -14,9 +14,9 @@
   <a href="editaccount.php"><div id="editaccount" class="container col-md-12" style="padding-top:10px; padding-bottom: 10px; font-size:120%; background-color:#d3d3d3;">
     <p>Edit Account</p>
   </div></a>
-  <div id="editproducts" class="container col-md-12" style="padding-top:10px; padding-bottom: 10px; font-size:120%; background-color:#d3d3d3;">
+  <a href="editproducts1.php"><div id="editproducts" class="container col-md-12" style="padding-top:10px; padding-bottom: 10px; font-size:120%; background-color:#d3d3d3;">
     <p>Edit Products</p>
-  </div>
+  </div></a>
 
   <?php
   include_once('db.php');
