@@ -7,7 +7,6 @@ if (!isset($_GET['id'])) {
 $query = $mysql->prepare('SELECT * FROM batchorder b INNER JOIN producttype pt ON b.product_id = pt.id INNER JOIN location l ON b.Location_id=l.id where b.id=:id;');
 $query->execute(array(':id' => $_GET['id']));
 $result = $query->fetch();
-var_dump($result);
 ?>
 <!DOCTYPE html>
 <html lang="en">
