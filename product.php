@@ -241,7 +241,7 @@ The current populate page is just an example and is what will change
           </row>
           <row>
             <div class="col-md-12" style="text-align:center;">
-              <img src="pics/sizechart.jpg" style="width:80%">
+              <img src="pics/sizechart.png" style="width:80%">
             </div>
           </row>
         </form>
