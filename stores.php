@@ -151,7 +151,7 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCMiZs865Ub7z9aN2gKZrfcSF8
           </div>
         </row>
         <row>
-          <div class="container col-md-12 pre-scrollable" id="locations" style="padding-top:10px; height:100%; max-height: 450px">
+          <div class="container col-md-12 pre-scrollable" id="locations" style="padding-top:10px; height:100%; max-height: 480px">
             <div class="container col-md-12 well" id="location1" style = "background-color:grey; padding-top:10px; font-size:120%">
             </div>
           </div>
