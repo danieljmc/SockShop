@@ -139,7 +139,7 @@ $(document).ready(function() {
   {
     $('#locations').empty();
     for(var i = 0;i<stores.length;i++){
-      var newLocation = "<div class=\"container col-md-12 well\" id=\"location"+i+"\" style = \"background-color:#d3d3d3; padding-top:10px; font-size:120%\"><p>City: "+stores[i].name+"</p><p>Address: "+stores[i].address+"</p><p>Distance: "+stores[i].distanceText +"</p><p>Travel Time: "+stores[i].durationText+"</p><button type=\"button\" class=\"btn btn-primary btn-md\" id=\"select"+i+"\">Select</button></div>"
+      var newLocation = "<div class=\"container col-md-12 well\" id=\"location"+i+"\" style = \"background-color:#ffecd8; padding-top:10px; font-size:120%\"><p>City: "+stores[i].name+"</p><p>Address: "+stores[i].address+"</p><p>Distance: "+stores[i].distanceText +"</p><p>Travel Time: "+stores[i].durationText+"</p><button type=\"button\" class=\"btn btn-primary btn-md\" id=\"select"+i+"\">Select</button></div>"
       var newButton = $(newLocation).click(selectStore(i));
       $('#locations').append(newButton);
     }
@@ -194,21 +194,20 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCMiZs865Ub7z9aN2gKZrfcSF8
     <?php include('php/header.php'); ?>
 
     <!-- Location picker -->
-    <div class="container col-md-4 border" style="background-color:#d3d3d3; height:600px; border:1px solid black;">
+    <div class="container col-md-4 border" style="background-color:#f7c986; height:600px; border:1px solid lightgray;">
       <row>
-        <h3 class="col-12-md" style="text-align:center;">Find Locations</h3>
+        <img src="Pics/storelocations.png" style="max-height:60px; max-width:100%; padding-top:10px; padding-left:10px"></img>
       </row>
       <row>
-        <div class="container col-md-12" style="padding-top:20px">
-          <p class="col-md-3" style="text-align:left; font-size:120%; padding-top:7px;">Postcode:</p>
-          <div class="col-md-6">
-            <input type="text" placeholder="postcode" class="form-control" id="postcode">
-          </div>
-          <button type="button" class="btn btn-primary btn-md" id="search">Search</button>
-        </div>
+        <div class="container col-md-12" style="padding-top:10px">
+          <div class="col-md-10" style="margin-left:-15px; margin-right:-12px">
+              <input type="text" placeholder="Enter postcode" class="form-control" id="postcode">
+            </div>
+            <button type="button" class="btn btn-primary btn-md" id="search" style="width:70px">Search</button>
+		</div>
       </row>
       <row>
-        <div class="container col-md-12 pre-scrollable" id="locations" style="padding-top:10px; height:100%; max-height: 480px">
+        <div class="container col-md-12 pre-scrollable" id="locations" style="margin-top:10px; padding-top:10px; height:100%; max-height: 475px">
           <div class="container col-md-12 well" id="location1" style = "background-color:#d3d3d3; padding-top:10px; font-size:120%">
           </div>
         </div>
@@ -216,13 +215,13 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCMiZs865Ub7z9aN2gKZrfcSF8
     </div>
 
     <!-- Checkout Pane -->
-    <div class="container col-md-8" style="background-color:#d3d3d3; height:600px; border:1px solid black;">
-      <row style="text-align:center;">
-        <h2>Order Summary</h3>
+    <div class="container col-md-8" style="background-color:#ffecd8; height:600px; border:1px solid lightgray;">
+      <row>
+		<center><img src="Pics/ordersummary.png" style="max-height:80px; max-width:100%; padding-top:10px"></img></center>
       </row>
 
       <row>
-        <div class="container col-md-12 pre-scrollable" style="height:200px;">
+        <div class="container col-md-12 pre-scrollable" style="height:200px; padding-top:10px">
           <table class="table table-bordered col-md-12">
             <thead>
               <tr>
@@ -257,8 +256,11 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCMiZs865Ub7z9aN2gKZrfcSF8
       <row>
         <div class="container col-md-12" style="font-size:120%; padding-top: 40px;">
           <p>
-            Your order will be ready to pick up in the store by tomorrow. Please bring ID to prove who you are.
+            Your order will be ready to pick up in the store by the next business day.
           </p>
+		  <p>
+			Please bring ID so we can confirm pickup.
+		  </p>
         </div>
       </row>
     </div>

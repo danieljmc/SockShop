@@ -28,8 +28,10 @@
 
     <!-- Contact form -->
     <div class="container col-md-6" style="padding-bottom:30px">
-      <h2>Contact form</h2>
-      <form>
+      <center>
+	  <img src="Pics/contactus.png" style="width:400px; max-height:100px"></img>
+	  </center>
+      <form style="padding-top:10px">
         <div class="form-group">
           <label for="name">Full Name:</label>
           <input type="text" class="form-control" id="name" placeholder="Enter your fullname" name="name">

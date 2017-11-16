@@ -69,6 +69,9 @@
     <div class="container col-md-12" style="text-align:center;">
       <form method="post">
         <div class="form-group">
+		  <center>
+			<img src="Pics/accinfo.png" style="max-width:400px"></img>
+		  </center>
           <label for="name" style="padding-top:30px;">Full Name:</label>
           <input type="text" class="form-control" id="name" value="<?php echo $FullName; ?>" name="name" style="margin: auto; width:40%;">
           <label for="address" style="padding-top:30px;">Address:</label>
