@@ -1,0 +1,86 @@
+<?php session_start();
+include_once('php/db.php');
+$query = $mysql->prepare("SELECT * FROM manufacturer m INNER JOIN batchorder bo on m.id=bo.Manufacturer_id INNER JOIN location l on l.id=bo.Location_id INNER JOIN producttype p on bo.Product_id=p.id where m.Email=:email ;");
+$query->execute(array(":email" => $_SESSION["username"]));
+$results = $query->fetchAll();
+ ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <?php include_once('php/head.php'); ?>
+</head>
+
+<body>
+  <div class="container">
+  <?php include_once('php/header.php'); ?>
+    <!-- Options tab -->
+    <div class="container col-md-3" style="padding-top:60px; padding-bottom:60px;">
+      <div class="container col-md-12" style="padding-top:10px; padding-bottom: 10px; font-size:120%; background-color:gray;">
+        <p>View Orders</p>
+      </div>
+    </div>
+
+    <!-- Check Stock -->
+    <div class="container col-md-9" style="background-color:#d3d3d3; height:620px; padding-top:20px; text-align:center;">
+      <div class="container col-md-12" style="padding-top:15px; padding-bottom:15px;">
+        <div class="col-md-3 container">
+          <input type="text" placeholder="Order ID" class="form-control" id="orderID">
+        </div>
+        <div class="col-md-2 container">
+          <button type="button" class="btn btn-primary btn-md" id="view" style="width:100%">View</button>
+        </div>
+      </div>
+      <div class="container col-md-12 pre-scrollable" style="background-color:#d3d3d3; max-height:600px; height:600px">
+        <table class="table table-bordered col-md-12">
+          <thead>
+            <tr>
+              <th>Order ID</th>
+              <th>Product</th>
+              <th>Quantity</th>
+              <th>Status</th>
+              <th>Location</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php foreach($results as $res) {
+              echo '<tr>';
+                echo "<td>$res[id]</td>";
+                echo "<td>$res[ProductName]</td>";
+                echo "<td>$res[Quantity]</td>";
+                echo "<td>$res[Status]</td>";
+                echo "<td>$res[LocationName]</td>";
+              echo '</tr>';
+            }
+            ?>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="col-md-12" style="background-color:grey; padding-top:20px;">
+      <ul class="col-md-4" style="text-align:center; list-style-type: none;">
+        <li>Company</li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Careers</a></li>
+      </ul>
+      <ul class="col-md-4" style="text-align:center; list-style-type: none;">
+        <li>More</li>
+        <li><a href="#">Acessibility</a></li>
+        <li><a href="#">Legal</a></li>
+        <li><a href="#">Privacy</a></li>
+        <li><a href="#">Terms of Use</a></li>
+      </ul>
+      <ul class="col-md-4" style="text-align:center; list-style-type: none;">
+        <li>Login</li>
+        <li><a href="#">Staff</a></li>
+        <li><a href="#">Manufacturer</a></li>
+        <li><a href="#">Customer</a></li>
+      </ul>
+    </div>
+
+    </div>
+    </body>
+    </html>
