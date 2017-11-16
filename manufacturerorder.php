@@ -4,6 +4,10 @@ include_once('php/db.php');
 if (!isset($_GET['id'])) {
   header("Location: manufacturerindex.php");
 }
+if (isset($_POST['options']) && isset($_POST['reason'])) {
+  $query = $mysql->prepare("UPDATE batchorder SET status=:options where id=:id");
+  $query->execute(array(':id' => $_POST['id'], ':options' => $_POST['options']));
+}
 $query = $mysql->prepare('SELECT * FROM batchorder b INNER JOIN producttype pt ON b.product_id = pt.id INNER JOIN location l ON b.Location_id=l.id where b.id=:id;');
 $query->execute(array(':id' => $_GET['id']));
 $result = $query->fetch();
@@ -41,22 +45,28 @@ $result = $query->fetch();
         <div class="container col-md-6" style="padding-top:20px;">
           <p><?php echo $result['Status']; ?></p>
         </div>
-        <div class="container col-md-6" style="padding-top:20px;">
-          <button type="submit" class="btn btn-default">Accept</button>
-        </div>
-        <div class="container col-md-6" style="padding-top:20px;">
-          <button type="submit" class="btn btn-default">Decline</button>
+        <form action="manufacturerorder.php" method="post">
+          <?php $_POST['id'] = $_GET['id']; ?>
+          <div class="btn-group" data-toggle="buttons">
+          <label class="btn btn-primary active">
+            <input type="radio" name="options" value="Accepted" id="accept" autocomplete="on" checked> Accept</input>
+          </label>
+          <label class="btn btn-primary">
+            <input type="radio" name="options" value="Declined" id="decline" autocomplete="off"> Decline </input>
+          </label>
         </div>
         <div class="container col-md-12" style="padding-top:20px;">
           <p>Reason for choice:</p>
         </div>
+        <input type="hidden" name="id" value="<?php echo $_GET['id'] ?>">
         <div class="container col-md-12" style="padding-top:0px;">
-          <input type="text" placeholder="Enter your reason" class="form-control" id="reason">
+          <input type="text" placeholder="Enter your reason" name="reason" class="form-control" id="reason">
         </div>
         <div class="col-md-12 container" style="padding-top:20px;">
-          <button type="button" class="btn btn-primary btn-md" id="submit" style="width:25%; margin: auto;">Submit</button>
+          <button type="submit" class="btn btn-primary btn-md" id="submit" style="width:25%; margin: auto;">Submit</button>
         </div>
       </div>
+    </form>
       <div class="container col-md-6" style="font-size:120%;">
         <p>Ordering Store:</p>
       </div>
