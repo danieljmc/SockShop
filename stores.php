@@ -135,9 +135,9 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCMiZs865Ub7z9aN2gKZrfcSF8
     <?php include('php/header.php'); ?>
 
     <row>
-
+	
       <!-- Locations -->
-      <div class="container col-md-4" style="background-color:#f7c986; height:600px">
+      <div class="container col-md-4" style="background-color:#f7c986; height:600px; border-radius:5px">
         <row>
 		  <img src="Pics/storelocations.png" style="max-height:60px; max-width:100%; padding-top:10px; padding-left:10px"></img>
         </row>
@@ -158,7 +158,7 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCMiZs865Ub7z9aN2gKZrfcSF8
       </div>
 
       <!-- div that the google maps uses -->
-      <div class="container col-md-8" id="responsive-map" style="height: 600px;"></div>
+      <div class="container col-md-8" id="responsive-map" style="height: 600px; border-radius:5px"></div>
 
     </row>
 
