@@ -44,10 +44,22 @@ $(document).ready(function() {
    function addItem(manID, manName, manRep){
     new ManItem(manID, manName, manRep)
   }
-
-
-
-
+  
+  	function varcheck(input){
+		return isNaN(input);  
+	}
+	
+  $('#update').click(function() {  
+  	var inputvalue = $("#manufacturerID").val();
+	 
+	if(varcheck(inputvalue) == false)
+	{
+		window.location.assign("addmanufacturer.php?id="+inputvalue);
+	}
+	else{
+	alert("Ensure that you use a numeric value for the manufacturer ID");
+	}
+    });
 
   <?php
 
@@ -69,7 +81,6 @@ $(document).ready(function() {
 		{
 			echo $e->getMessage();
 		}
-
 	?>
 })
 
@@ -87,18 +98,6 @@ $(document).ready(function() {
     <!-- Check Stock -->
     <div class="container col-md-9" style="background-color:#d3d3d3; height:800px">
       <div class="container col-md-12" style="padding-top:15px; padding-bottom:15px;">
-        <div class="col-md-2 container">
-          <input type="text" placeholder="Manufactur ID" class="form-control" id="manufacturerID">
-        </div>
-        <div class="col-md-2 container">
-          <button type="button" class="btn btn-primary btn-md" id="update" style="width:100%">Update</button>
-        </div>
-        <div class="col-md-2 container">
-          <button type="button" class="btn btn-primary btn-md" id="delete" style="width:100%">Delete</button>
-        </div>
-        <div class="container col-md-6" style="text-align:right;">
-          <button type="button" class="btn btn-primary btn-md" id="add" onclick="window.location.href='addmanufacturer.php'">Add a New Manufacturer</button>
-        </div>
       </div>
       <div class="container col-md-12 pre-scrollable" style="background-color:#d3d3d3; max-height:600px; height:600px">
         <table class="table table-bordered col-md-12">
