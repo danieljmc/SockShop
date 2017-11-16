@@ -141,16 +141,6 @@ The current populate page is just an example and is what will change
        var price = <?php echo $productPrice; ?>;
        populatePage(productID,productName,description,materials,sizes,colors,price)
 
-       $('#sizes').on('change',function(e){
-         var selectedSize = $("option:selected", this).text();
-         $('#colors').empty();
-         for(var i=0;i<pairs.length;i++){
-           if(pairs[i][0]==selectedSize){
-             $('#colors').append("<option value=\""+pairs[i][1]+"\">"+pairs[i][1]+"</option>")
-           }
-         }
-       });
-
        $('#colors').on('change',function(e){
          var selectedColor = $("option:selected", this).text();
          $('#sizes').empty();
@@ -160,6 +150,14 @@ The current populate page is just an example and is what will change
            }
          }
        });
+
+       var selectedColor = $("option:selected", $('#colors')).text();
+       $('#sizes').empty();
+       for(var i=0;i<pairs.length;i++){
+         if(pairs[i][1]==selectedColor){
+           $('#sizes').append("<option value=\""+pairs[i][0]+"\">"+pairs[i][0]+"</option>")
+         }
+       }
 
     });
   </script>

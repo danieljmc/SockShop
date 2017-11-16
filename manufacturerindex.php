@@ -1,8 +1,12 @@
 <?php session_start();
 include_once('php/db.php');
-$query = $mysql->prepare("SELECT * FROM manufacturer m INNER JOIN batchorder bo on m.id=bo.Manufacturer_id INNER JOIN location l on l.id=bo.Location_id INNER JOIN producttype p on bo.Product_id=p.id where m.Email=:email ;");
-$query->execute(array(":email" => $_SESSION["username"]));
-$results = $query->fetchAll();
+if(isset($_SESSION['username'])) {
+  $query = $mysql->prepare("SELECT b.id, pt.productname, b.quantity, b.status, l.locationname, l.address, m.email FROM batchorder b INNER JOIN producttype pt ON b.product_id = pt.id INNER JOIN location l ON b.Location_id=l.id INNER JOIN manufacturer m ON b.Manufacturer_id=m.id where m.Email=:email ;");
+  $query->execute(array(":email" => $_SESSION["username"]));
+  $results = $query->fetchAll();
+} else {
+  header("Location: index.php");
+}
  ?>
 
 <!DOCTYPE html>
@@ -45,11 +49,11 @@ $results = $query->fetchAll();
           <tbody>
             <?php foreach($results as $res) {
               echo '<tr>';
-                echo "<td>$res[id]</td>";
-                echo "<td>$res[ProductName]</td>";
-                echo "<td>$res[Quantity]</td>";
-                echo "<td>$res[Status]</td>";
-                echo "<td>$res[LocationName]</td>";
+                echo "<td><a href=manufacturerorder.php?id=$res[id]>$res[id]</a></td>";
+                echo "<td><a href=manufacturerorder.php?id=$res[id]>$res[productname]</a></td>";
+                echo "<td>$res[quantity]</td>";
+                echo "<td>$res[status]</td>";
+                echo "<td>$res[locationname]</td>";
               echo '</tr>';
             }
             ?>
