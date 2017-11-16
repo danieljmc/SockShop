@@ -1,5 +1,10 @@
-<?php session_start(); ?>
+<?php session_start();
 
+//ensure user is logged in before they access this page (*ahem*gavin forgot this part)
+if (!isset($_SESSION['username'])) {
+	header("Location: index.php");
+}
+?>
 <!--
 
 To add to the basket simply call add to basket and pass it the correct paramaters
