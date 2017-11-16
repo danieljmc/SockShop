@@ -14,7 +14,7 @@
     <?php include('php/header.php'); ?>
 
 	<!-- Bootstrap photo slider -->
-    <div class="col-md-12" style="padding-bottom:10px">
+    <div class="col-md-12">
       <div id="promoSlider" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
           <li data-target="#promoSlider" data-slide-to="0" class="active"></li>
@@ -48,46 +48,46 @@
     </div>
 
 	<!-- Bootstrap category selector -->
-	<div class="row text-center text-lg-left">
+	<div class="row text-center" style="margin-left:auto; margin-right:auto">
 
-		<div class="col-lg-3 col-md-5 col-xs-6">
+		<div class="col-lg-3 col-md-5 col-xs-6" style="margin-top:15px">
 		  <a href="search.php?searchterm=men" class="d-block mb-4 h-100">
-			<img class="img-fluid img-thumbnail" src="Pics/Categories/cat1.png" style="height:210px">
+			<img class="img-fluid img-thumbnail" src="Pics/Categories/cat1.png" style="max-height:240px; max-width:240px">
 		  </a>
 		</div>
-		<div class="col-lg-3 col-md-4 col-xs-6">
+		<div class="col-lg-3 col-md-4 col-xs-6" style="margin-top:15px">
 		  <a href="search.php?searchterm=ladies" class="d-block mb-4 h-100">
-			<img class="img-fluid img-thumbnail" src="Pics/Categories/cat2.png" style="height:210px">
+			<img class="img-fluid img-thumbnail" src="Pics/Categories/cat2.png" style="max-height:240px; max-width:240px">
 		  </a>
 		</div>
-		<div class="col-lg-3 col-md-4 col-xs-6">
+		<div class="col-lg-3 col-md-4 col-xs-6" style="margin-top:15px">
 		  <a href="search.php?searchterm=novelty" class="d-block mb-4 h-100">
-			<img class="img-fluid img-thumbnail" src="Pics/Categories/cat3.png" style="height:210px">
+			<img class="img-fluid img-thumbnail" src="Pics/Categories/cat3.png" style="max-height:240px; max-width:240px">
 		  </a>
 		</div>
-		<div class="col-lg-3 col-md-4 col-xs-6">
+		<div class="col-lg-3 col-md-4 col-xs-6" style="margin-top:15px">
 		  <a href="search.php?searchterm=multicolor" class="d-block mb-4 h-100">
-			<img class="img-fluid img-thumbnail" src="Pics/Categories/cat4.png" style="height:210px">
+			<img class="img-fluid img-thumbnail" src="Pics/Categories/cat4.png" style="max-height:240px; max-width:240px">
 		  </a>
 		</div>
-		<div class="col-lg-3 col-md-4 col-xs-6">
+		<div class="col-lg-3 col-md-4 col-xs-6" style="margin-top:15px">
 		  <a href="search.php?searchterm=bright" class="d-block mb-4 h-100">
-			<img class="img-fluid img-thumbnail" src="Pics/Categories/cat5.png" style="height:210px">
+			<img class="img-fluid img-thumbnail" src="Pics/Categories/cat5.png" style="max-height:240px; max-width:240px">
 		  </a>
 		</div>
-		<div class="col-lg-3 col-md-4 col-xs-6">
+		<div class="col-lg-3 col-md-4 col-xs-6" style="margin-top:15px">
 		  <a href="search.php?searchterm=small" class="d-block mb-4 h-100">
-			<img class="img-fluid img-thumbnail" src="Pics/Categories/cat6.png" style="height:210px">
+			<img class="img-fluid img-thumbnail" src="Pics/Categories/cat6.png" style="max-height:240px; max-width:240px">
 		  </a>
 		</div>
-		<div class="col-lg-3 col-md-4 col-xs-6">
+		<div class="col-lg-3 col-md-4 col-xs-6" style="margin-top:15px">
 		  <a href="search.php?searchterm=medium" class="d-block mb-4 h-100">
-			<img class="img-fluid img-thumbnail" src="Pics/Categories/cat7.png" style="height:210px">
+			<img class="img-fluid img-thumbnail" src="Pics/Categories/cat7.png" style="max-height:240px; max-width:240px">
 		  </a>
 		</div>
-		<div class="col-lg-3 col-md-4 col-xs-6">
+		<div class="col-lg-3 col-md-4 col-xs-6" style="margin-top:15px">
 		  <a href="search.php?searchterm=large" class="d-block mb-4 h-100">
-			<img class="img-fluid img-thumbnail" src="Pics/Categories/cat8.png" style="height:210px">
+			<img class="img-fluid img-thumbnail" src="Pics/Categories/cat8.png" style="max-height:240px; max-width:240px">
 		  </a>
 		</div>
 	</div>

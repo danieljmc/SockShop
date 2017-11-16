@@ -195,7 +195,7 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCMiZs865Ub7z9aN2gKZrfcSF8
     <?php include('php/header.php'); ?>
 
     <!-- Location picker -->
-    <div class="container col-md-4 border" style="background-color:#f7c986; height:600px; border:1px solid lightgray;">
+    <div class="container col-md-4 border" style="background-color:#f7c986; height:600px; border:1px solid lightgray; border-radius:5px">
       <row>
         <img src="Pics/storelocations.png" style="max-height:60px; max-width:100%; padding-top:10px; padding-left:10px"></img>
       </row>
@@ -216,7 +216,7 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCMiZs865Ub7z9aN2gKZrfcSF8
     </div>
 
     <!-- Checkout Pane -->
-    <div class="container col-md-8" style="background-color:#ffecd8; height:600px; border:1px solid lightgray;">
+    <div class="container col-md-8" style="background-color:#ffecd8; height:600px; border:1px solid lightgray; border-radius:5px">
       <row>
 		<center><img src="Pics/ordersummary.png" style="max-height:80px; max-width:100%; padding-top:10px"></img></center>
       </row>
