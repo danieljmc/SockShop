@@ -137,7 +137,7 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCMiZs865Ub7z9aN2gKZrfcSF8
     <row>
 
       <!-- Locations -->
-      <div class="container col-md-4" style="background-color:#d3d3d3; height:600px">
+      <div class="container col-md-4" style="background-color:#f7c986; height:550px">
         <row>
           <h3 class="col-12-md" style="text-align:center;">Find Locations</h3>
         </row>
