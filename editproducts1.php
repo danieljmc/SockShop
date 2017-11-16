@@ -3,11 +3,66 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <?php include('php/head.php'); ?>
+  <?php include('php/head.php');?>
 </head>
 <script>
 $('document').ready(function(){
+  $('#update').click(function(){
+    var form = $('<form method="get" action="editproducts3.php">' +
+             '<input type="hidden" name="updateid"  value="' + $('#productID').val() + '"></form>');
+    $(document.body).append(form)
+    $(form).submit();
+  });
+
   $('#editproducts').css('background-color','gray');
+  products = []
+  class Product{
+    constructor(id,name,price){
+      this.id = id
+      this.name = name
+      this.price = price
+      products.push(this)
+    }
+
+    getString(){
+      return [
+        "<tr>",
+          "<td>"+this.id+"</td>",
+          "<td>"+this.name+"</td>",
+          "<td>£"+this.price+"</td>",
+        "</tr>"
+      ].join("")
+    }
+  }
+
+  function updateTable(){
+    $('#tablebody').empty();
+    var html = ""
+    for(var i =0;i<products.length;i++){
+      html += products[i].getString()
+    }
+    $('#tablebody').append(html);
+  }
+
+  <?php
+  include('php/db.php');
+
+  $query = "SELECT id, ProductName, Price FROM producttype";
+
+  $stmt = $mysql->prepare($query);
+  try{
+    $stmt->execute();
+    $result = $stmt->fetchAll();
+    foreach($result as $row){
+      echo "new Product(".$row['id'].",'".$row['ProductName']."',".$row['Price'].");\n";
+    }
+  }catch(PDOException $e){
+    echo $e->getMessage();
+  }
+
+  ?>
+
+  updateTable();
 });
 </script>
 <body>
@@ -22,17 +77,14 @@ $('document').ready(function(){
     <!-- Check Stock -->
     <div class="container col-md-9" style="background-color:#d3d3d3; height:800px">
       <div class="container col-md-12" style="padding-top:15px; padding-bottom:15px;">
-        <div class="col-md-2 container">
+        <div class="col-md-3 container">
           <input type="text" placeholder="Product ID" class="form-control" id="productID">
         </div>
-        <div class="col-md-2 container">
+        <div class="col-md-3 container">
           <button type="button" class="btn btn-primary btn-md" id="update" style="width:100%">Update</button>
         </div>
-        <div class="col-md-2 container">
-          <button type="button" class="btn btn-primary btn-md" id="delete" style="width:100%">Delete</button>
-        </div>
         <div class="container col-md-6" style="text-align:right;">
-          <button type="button" class="btn btn-primary btn-md" id="add">Add a New Product</button>
+          <button onclick="window.location.href='editproducts2.php'" type="button" class="btn btn-primary btn-md" id="add">Add a New Product</button>
         </div>
       </div>
       <div class="container col-md-12 pre-scrollable" style="background-color:#d3d3d3; max-height:600px; height:600px">
@@ -44,7 +96,7 @@ $('document').ready(function(){
               <th>Price</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody id="tablebody">
             <tr>
               <td>0</td>
               <td>Colorful socks</td>

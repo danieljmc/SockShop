@@ -139,19 +139,18 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCMiZs865Ub7z9aN2gKZrfcSF8
       <!-- Locations -->
       <div class="container col-md-4" style="background-color:#f7c986; height:600px">
         <row>
-          <h3 class="col-12-md" style="text-align:center;">Find Locations</h3>
+		  <img src="Pics/storelocations.png" style="max-height:60px; max-width:100%; padding-top:10px; padding-left:10px"></img>
         </row>
         <row>
-          <div class="container col-md-12" style="padding-top:20px">
-            <p class="col-md-3" style="text-align:left; font-size:120%; padding-top:7px;">Postcode:</p>
-            <div class="col-md-6">
-              <input type="text" placeholder="postcode" class="form-control" id="postcode">
+          <div class="container col-md-12" style="padding-top:10px">
+            <div class="col-md-10" style="margin-left:-15px; margin-right:-12px">
+              <input type="text" placeholder="Enter postcode" class="form-control" id="postcode">
             </div>
-            <button type="button" class="btn btn-primary btn-md" id="search">Search</button>
+            <button type="button" class="btn btn-primary btn-md" id="search" style="width:70px">Search</button>
           </div>
         </row>
         <row>
-          <div class="container col-md-12 pre-scrollable" id="locations" style="padding-top:10px; height:100%; max-height: 475px">
+          <div class="container col-md-12 pre-scrollable" id="locations" style="margin-top:10px; padding-top:10px; height:100%; max-height: 475px">
             <div class="container col-md-12 well" id="location1" style = "background-color:black; padding-top:10px; font-size:120%">
             </div>
           </div>
