@@ -100,7 +100,7 @@
 
     var stores = [];
     stores.push(new Store(56.459101, -2.972326, "Dundee", "Nethergate"));
-    stores.push(new Store(55.954064, -3.203514, "Edinburgh", "Princess Street"));
+    stores.push(new Store(55.954064, -3.203514, "Edinburgh", "Princes Street"));
     stores.push(new Store(55.861392, -4.248592, "Glasgow", "George Square"));
     stores.push(new Store(57.146151, -2.100288, "Aberdeen", "Union Street"));
 
@@ -151,7 +151,7 @@ src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCMiZs865Ub7z9aN2gKZrfcSF8
           </div>
         </row>
         <row>
-          <div class="container col-md-12 pre-scrollable" id="locations" style="padding-top:10px; height:100%; max-height: 500px">
+          <div class="container col-md-12 pre-scrollable" id="locations" style="padding-top:10px; height:100%; max-height: 480px">
             <div class="container col-md-12 well" id="location1" style = "background-color:grey; padding-top:10px; font-size:120%">
             </div>
           </div>
