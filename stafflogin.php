@@ -39,14 +39,16 @@ $stmt = $mysql->prepare($query);
     <?php include('php/header.php'); ?>
 
     <!-- Login Details -->
-    <div class="container col-md-5" style="padding-top:100px;">
-      <div style="background-color:#d3d3d3; padding:20px">
-        <h1>Staff Login</h1>
+    <div class="col-md-5" style="padding-top:80px; padding-bottom:80px; margin-left:auto; margin-right:auto; float:none;">
+      <div style="background-color:#ffecd8; padding:50px; border-radius:5px;">
+		<center>
+		<img src="Pics/stafflogin.png" style="margin-left:auto; margin-right:auto; max-width:250px; margin-top:-30px; margin-bottom:20px"></img>
+		</center>
         <form action="stafflogin.php" method="POST">
           <div class="form-group">
             <?php
               if(isset($_SESSION["staffusername"])){
-                echo "<p style=\"text-align:center\">Logged In!</p>";
+                echo "<h2 style=\"text-align:center; margin-top:-10px\">Logged In!</h2>";
               }
 
               if (!empty($_POST["username"])) {
@@ -62,14 +64,11 @@ $stmt = $mysql->prepare($query);
             <label for="password">Password:</label>
             <input type="password" class="form-control" id="password" placeholder="Enter your password" name="password">
           </div>
-          <button type="submit" class="btn btn-default">Login</button>
+          <center>
+			<button type="submit" class="btn btn-default" style="width:100px; margin-top:10px; margin-bottom:-20px">Login</button>
+		  </center>
         </form>
       </div>
-    </div>
-
-    <!-- Ad Panel -->
-    <div class="container col-md-7" style="height:600px; padding:40px">
-      <div style="background-color:blue; height:100%;"></div>
     </div>
 
     <!-- Footer -->

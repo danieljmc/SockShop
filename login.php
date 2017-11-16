@@ -36,13 +36,13 @@
     <?php include('php/header.php'); ?>
 
     <!-- Login Details -->
-    <div class="container col-md-5" style="padding-top:200px;">
-      <div style="background-color:#d3d3d3; padding:20px">
+	<div class="container col-md-5" style="padding-top:150px;">
+      <div style="background-color:#ffecd8; padding:50px; border-radius: 5px">
         <form action="login.php" method="POST">
           <div class="form-group">
             <?php
               if(isset($_SESSION["username"])){
-                echo "<p style=\"text-align:center\">Logged In!</p>";
+                echo "<h2 style=\"text-align:center; margin-top:-10px\">Logged In!</h2>";
               }
 
               if (!empty($_POST["username"])) {
@@ -66,7 +66,7 @@
 
     <!-- Ad Panel -->
     <div class="container col-md-7" style="height:600px; padding:40px">
-      <div style="background-color:blue; height:100%;"><img src="Pics/login.png"></div>
+      <div style="height:100%"><img src="Pics/login.png" style="border-radius:5px"></div>
     </div>
 
     <!-- Footer -->

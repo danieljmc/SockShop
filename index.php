@@ -22,7 +22,7 @@
           <li data-target="#promoSlider" data-slide-to="2"></li>
         </ol>
 
-        <div class="carousel-inner" role="listbox">
+        <div class="carousel-inner" role="listbox" style="border-radius:5px">
           <div class="item active">
             <img class="d-block img-fluid" src="Pics/Banners/ban1.png" alt="Promo1" style="width:100%;">
           </div>
@@ -36,11 +36,11 @@
           </div>
         </div>
 
-        <a class="left carousel-control" href="#promoSlider" role="button" data-slide="prev">
+        <a class="left carousel-control" style="border-radius:5px" href="#promoSlider" role="button" data-slide="prev">
           <span class="glyphicon glyphicon-chevron-left"></span>
           <span class="sr-only">Previous</span>
         </a>
-        <a class="right carousel-control" href="#promoSlider" role="button" data-slide="next">
+        <a class="right carousel-control" style="border-radius:5px" href="#promoSlider" role="button" data-slide="next">
           <span class="glyphicon glyphicon-chevron-right"></span>
           <span class="sr-only">Next</span>
         </a>
