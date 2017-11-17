@@ -66,16 +66,16 @@ The current populate page is just an example and is what will change
          $('#photoselector').append(imageselector.join(""))
          //Image press functions to change the main image
          $('#img1').click(function() {
-            $("#main-img").attr("src","../productPics/"+id+"/1.jpg");
+            $("#main-img").attr("src","Pics/productPics/"+id+"/1.jpg");
          });
          $('#img2').click(function() {
-            $("#main-img").attr("src","../productPics/"+id+"/2.jpg");
+            $("#main-img").attr("src","Pics/productPics/"+id+"/2.jpg");
          });
          $('#img3').click(function() {
-            $("#main-img").attr("src","../productPics/"+id+"/3.jpg");
+            $("#main-img").attr("src","Pics/productPics/"+id+"/3.jpg");
          });
          $('#img4').click(function() {
-            $("#main-img").attr("src","../productPics/"+id+"/4.jpg");
+            $("#main-img").attr("src","Pics/productPics/"+id+"/4.jpg");
          });
 
          $('#price').val("£"+price);
