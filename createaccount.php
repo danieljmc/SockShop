@@ -42,6 +42,9 @@
     <div class="container col-md-12" style="text-align:center;">
       <form method="post">
         <div class="form-group">
+		  <center>
+			<img src="Pics/newaccount.png" style="max-width:350px"></img>
+		  </center>
           <label for="name" style="padding-top:30px;">Full Name:</label>
           <input type="text" class="form-control" id="name" placeholder="Enter your fullname" name="name" style="margin: auto; width:40%;">
           <label for="address" style="padding-top:30px;">Address:</label>

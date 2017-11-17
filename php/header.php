@@ -49,7 +49,7 @@
     <img style=\"max-height:100px; margin:-15px; padding: 3px 3px\" src=\"Pics/logo2.png\">
     </a>
       </div>
-    <ul class=\"nav navbar-nav\" style=\"height:100px; max-width:100%\">
+    <ul class=\"nav navbar-nav\" style=\"height:100px; max-width:450px\">
       <li><a href=\"index.php\" style=\"padding-top:40px; padding-bottom:40px\">Home</a></li>
       <li><a href=\"about.php\" style=\"padding-top:40px; padding-bottom:40px\">About</a></li>
       <li><a href=\"contact.php\" style=\"padding-top:40px; padding-bottom:40px\">Contact</a></li>
@@ -64,7 +64,7 @@
    $part2 = "</ul>
     <form class=\"navbar-form navbar-right\" style=\"padding-top:25px; padding-bottom:25px\" action=\"search.php\" method=\"get\">
     <div class=\"form-group\">
-      <input type=\"text\" name=\"searchterm\" class=\"form-control\" placeholder=\"Search\">
+      <input type=\"text\" name=\"searchterm\" class=\"form-control\" placeholder=\"Search\" style=\"max-width:150px\">
     </div>
     <button type=\"submit\" class=\"btn btn-default\">Submit</button>
       </form>
