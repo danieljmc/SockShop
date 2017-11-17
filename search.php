@@ -122,7 +122,7 @@ $(document).ready(function() {
   <?php
     include 'php/db.php';
     if(isset($_GET['searchterm'])){
-      $query = "select id,ProductName,Description,price from producttype where ProductName like '%".$_GET['searchterm']."%'";
+      $query = "select id,ProductName,Description,price from producttype where ProductName like '%".$_GET['searchterm']."%' order by price DESC";
       $stmt = $mysql->prepare($query);
       try{
         $stmt->execute();
