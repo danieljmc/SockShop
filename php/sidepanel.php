@@ -9,7 +9,7 @@
     <p>Order New Stock</p>
   </div></a>
   <a href="recievestock.php"><div id="recievestock" class="container col-md-12" style="padding-top:10px; padding-bottom: 10px; font-size:120%; background-color:#d3d3d3;">
-    <p>Recieve Stock</p>
+    <p>Receive Stock</p>
   </div></a>
   <a href="editaccount.php"><div id="editaccount" class="container col-md-12" style="padding-top:10px; padding-bottom: 10px; font-size:120%; background-color:#d3d3d3;">
     <p>Edit Account</p>
