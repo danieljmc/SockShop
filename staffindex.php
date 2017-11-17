@@ -114,7 +114,9 @@ $('document').ready(function(){
 	on so.ProductID = p.id
   inner join producttype pt
 	on pt.id = p.ProductType_id
-  where Status !='Completed'";
+  where Status !='Completed'
+  and
+  o.Location_id = (Select LocationID from staffmember where Email = '".$_SESSION['staffusername']."')";
   $stmt = $mysql->prepare($query);
   try{
     $stmt->execute();
