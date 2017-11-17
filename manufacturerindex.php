@@ -19,16 +19,16 @@ if(isset($_SESSION['manusername'])) {
   <div class="container">
   <?php include_once('php/header.php'); ?>
     <!-- Options tab -->
-    <div class="container col-md-3" style="padding-top:60px; padding-bottom:60px;">
-      <div class="container col-md-12" style="padding-top:10px; padding-bottom: 10px; font-size:120%; background-color:gray;">
-        <p><a href="manufacturerindex.php">View Orders</a></p>
+    <div class="container col-md-3" style="padding-top:60px; padding-bottom:60px">
+      <div class="container col-md-12" style="padding-top:10px; padding-bottom: 10px; font-size:120%; background-color:#ffecd8; border-radius: 5px">
+        <p style="padding-top:10px;"><a href="manufacturerindex.php">View Orders</a></p>
       </div>
     </div>
 
     <!-- Check Stock -->
-    <div class="container col-md-9" style="background-color:#d3d3d3; height:620px; padding-top:20px; text-align:center;">
-      <div class="container col-md-12 pre-scrollable" style="background-color:#d3d3d3; max-height:600px; height:600px">
-        <table class="table table-bordered col-md-12">
+    <div class="container col-md-9" style="background-color:#f7c986; height:620px; padding-top:20px; text-align:center; border-radius:5px">
+      <div class="container col-md-12 pre-scrollable" style="background-color:#ffecd8; max-height:600px; height:600px; margin-top:-10px; border-radius:5px; border: 1px solid lightgray">
+        <table class="table table-bordered col-md-12" style="margin-top:10px">
           <thead>
             <tr>
               <th>Order ID</th>
@@ -54,28 +54,8 @@ if(isset($_SESSION['manusername'])) {
       </div>
     </div>
 
-    <!-- Footer -->
-    <div class="col-md-12" style="background-color:grey; padding-top:20px;">
-      <ul class="col-md-4" style="text-align:center; list-style-type: none;">
-        <li>Company</li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Contact</a></li>
-        <li><a href="#">Careers</a></li>
-      </ul>
-      <ul class="col-md-4" style="text-align:center; list-style-type: none;">
-        <li>More</li>
-        <li><a href="#">Acessibility</a></li>
-        <li><a href="#">Legal</a></li>
-        <li><a href="#">Privacy</a></li>
-        <li><a href="#">Terms of Use</a></li>
-      </ul>
-      <ul class="col-md-4" style="text-align:center; list-style-type: none;">
-        <li>Login</li>
-        <li><a href="#">Staff</a></li>
-        <li><a href="#">Manufacturer</a></li>
-        <li><a href="#">Customer</a></li>
-      </ul>
-    </div>
+    <!-- The footer -->
+    <?php include('php/footer.php')?>
 
     </div>
     </body>

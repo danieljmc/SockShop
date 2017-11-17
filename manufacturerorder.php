@@ -25,21 +25,23 @@ $result = $query->fetch();
     <?php include_once('php/header.php'); ?>
 
     <!-- Options tab -->
-    <div class="container col-md-3" style="padding-top:60px; padding-bottom:60px;">
-      <div class="container col-md-12" style="padding-top:10px; padding-bottom: 10px; font-size:120%; background-color:gray;">
-        <p><a href="manufacturerindex.php">View Orders</a></p>
+    <div class="container col-md-3" style="padding-top:60px; padding-bottom:60px">
+      <div class="container col-md-12" style="padding-top:10px; padding-bottom: 10px; font-size:120%; background-color:#ffecd8; border-radius: 5px">
+        <p style="padding-top:10px;"><a href="manufacturerindex.php">View Orders</a></p>
       </div>
     </div>
 
     <!-- Check Stock -->
-    <div class="container col-md-9" style="background-color:#d3d3d3; height:310px; padding-top:20px; text-align:center;">
-      <div class="container col-md-6" style="font-size:120%;">
-        <div class="container col-md-6">
-          <p>Product:</p>
-        </div>
-        <div class="container col-md-6">
-          <p><?php echo $result['ProductName'];?></p>
-        </div>
+    <div class="container col-md-9" style="background-color:#f7c986; padding-top:10px; padding-bottom:10px; text-align:center; border-radius: 5px;">
+      <div class="container col-md-6" style="font-size:120%; background-color:#ffecd8; border-radius: 5px; border: 1px solid lightgray; margin:auto;">
+        <div style="padding-top:5px">
+			<div class="container col-md-6">
+			  <p>Product:</p>
+			</div>
+			<div class="container col-md-6">
+			  <p><?php echo $result['ProductName'];?></p>
+			</div>
+		</div>
         <div class="container col-md-6" style="padding-top:20px;">
           <p>Order Status:</p>
         </div>
@@ -67,40 +69,18 @@ $result = $query->fetch();
           <input type="text" placeholder="Enter your reason" name="reason" class="form-control" id="reason">
         </div>
         <div class="col-md-12 container" style="padding-top:20px;">
-          <button type="submit" class="btn btn-primary btn-md" id="submit" style="width:25%; margin: auto;">Submit</button>
+          <button type="submit" class="btn btn-primary btn-md" id="submit" style="max-width:25%; margin-bottom:10px;">Submit</button>
         </div>
       </div>
     </form>
-      <div class="container col-md-6" style="font-size:120%;">
-        <p>Ordering Store:</p>
-      </div>
-      <div class="container col-md-6" style="font-size:120%;">
-        <p><?php echo $result['Address'] . ', ' . $result['LocationName']; ?></p>
-      </div>
+	  <div class="container col-md-6" style="font-size:120%; background-color:#ffecd8; border-radius: 5px; border: 1px solid lightgray; margin:auto;">
+			<p>Ordering Store:</p>
+			<p><?php echo $result['Address'] . ', ' . $result['LocationName']; ?></p>
+	  </div>
     </div>
 
-    <!-- Footer -->
-    <div class="col-md-12" style="background-color:grey; padding-top:20px;">
-      <ul class="col-md-4" style="text-align:center; list-style-type: none;">
-        <li>Company</li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Contact</a></li>
-        <li><a href="#">Careers</a></li>
-      </ul>
-      <ul class="col-md-4" style="text-align:center; list-style-type: none;">
-        <li>More</li>
-        <li><a href="#">Acessibility</a></li>
-        <li><a href="#">Legal</a></li>
-        <li><a href="#">Privacy</a></li>
-        <li><a href="#">Terms of Use</a></li>
-      </ul>
-      <ul class="col-md-4" style="text-align:center; list-style-type: none;">
-        <li>Login</li>
-        <li><a href="#">Staff</a></li>
-        <li><a href="#">Manufacturer</a></li>
-        <li><a href="#">Customer</a></li>
-      </ul>
-    </div>
+    <!-- The footer -->
+    <?php include('php/footer.php')?>
 
     </div>
     </body>
