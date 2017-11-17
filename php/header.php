@@ -17,6 +17,14 @@
 	unset($_SESSION["staffusername"]);
 	unset($_SESSION["username"]);
     $loggedin2 = True;
+    include_once('php/db.php');
+    $query = $mysql->prepare("SELECT b.id, pt.productname, b.quantity, b.status, l.locationname, l.address, m.email FROM batchorder b INNER JOIN producttype pt ON b.product_id = pt.id INNER JOIN location l ON b.Location_id=l.id INNER JOIN manufacturer m ON b.Manufacturer_id=m.id where m.Email=:email ;");
+    $query->execute(array(":email" => $_SESSION["manusername"]));
+    $results = $query->fetchAll();
+    $count = 0;
+    foreach ($results as $res) {
+      if ($res['status'] == 'Placed') $count++;
+    }
   }
 
 	
@@ -34,7 +42,7 @@
 	$redirect2 = "staffindex";
 	$logoutlink = "<li><a href=\"php/logout.php\" style=\"padding-top:40px; padding-bottom:40px; margin-right:10px\">Log Out</a></li>";
   } else if($loggedin2){
-	$redirect = "Manufacturer";
+	$redirect = "Manufacturer ($count)";
 	$redirect1 = "manufacturerindex";
 	$redirect2 = "manufacturerindex";
 	$logoutlink = "<li><a href=\"php/logout.php\" style=\"padding-top:40px; padding-bottom:40px; margin-right:10px\">Log Out</a></li>";
