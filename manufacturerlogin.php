@@ -1,5 +1,7 @@
 <?php
 session_start();
+session_destroy();
+session_start();
 include('php/db.php');
 if (!empty($_POST["username"])) {
 $query = "select Password from manufacturer where Email=\"".$_POST["username"]."\";";

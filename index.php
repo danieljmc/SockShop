@@ -7,6 +7,14 @@
 	<?php include('php/head.php'); ?>
 </head>
 
+<script>
+
+$('document').ready(function(){
+	<?php if(isset($_GET['completed'])){ echo "alert('Your payment is being processed')"; } ?>
+})
+
+</script>
+
 <body>
   <div class="container">
 

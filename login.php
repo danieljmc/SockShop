@@ -1,4 +1,4 @@
-<?php session_start(); ?>
+<?php session_start(); session_destroy(); session_start(); ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -7,30 +7,37 @@
 	<?php include('php/head.php'); ?>
 </head>
 
+<script>
+$('document').ready(function(){
+	<?php
+		include('php/db.php');
+		if (!empty($_POST["username"])) {
+			$query = "select Password from customer where Email=\"".$_POST["username"]."\";";
+			//echo $query;
+			$stmt = $mysql->prepare($query);
+			try{
+				$stmt->execute();
+				$result = $stmt->fetch();
+				if(!($_POST["password"]=="")){
+					$password = $result['Password'];
+					if($_POST["password"]==$password){
+						$_SESSION["username"] = $_POST["username"];
+						echo "window.location.href='index.php'";
+					}
+				}
+			} catch( PDOException $e ){
+				echo $e->getMessage();
+			}
+		}
+
+	?>
+})
+</script>
+
 <body>
   <div class="container">
 
-    <?php
-      include('php/db.php');
-      if (!empty($_POST["username"])) {
-        $query = "select Password from customer where Email=\"".$_POST["username"]."\";";
-        //echo $query;
-        $stmt = $mysql->prepare($query);
-        try{
-          $stmt->execute();
-          $result = $stmt->fetch();
-					if(!($_POST["password"]=="")){
-	          $password = $result['Password'];
-	          if($_POST["password"]==$password){
-	            $_SESSION["username"] = $_POST["username"];
-	          }
-					}
-        } catch( PDOException $e ){
-          echo $e->getMessage();
-        }
-      }
 
-    ?>
 
     <!-- The navbar -->
     <?php include('php/header.php'); ?>
