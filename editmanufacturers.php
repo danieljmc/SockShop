@@ -11,7 +11,7 @@
 $(document).ready(function() {
   var manufacturerArray = []
 
-  $('#editmanufacturers').css('background-color','grey')
+  $('#editmanufacturers').css('background-color','#f7c986')
 
   class ManItem{
     constructor(manID, manName, manRep){
@@ -96,10 +96,8 @@ $(document).ready(function() {
     <?php include('./php/sidepanel.php'); ?>
 
     <!-- Check Stock -->
-    <div class="container col-md-9" style="background-color:#d3d3d3; height:800px">
-      <div class="container col-md-12" style="padding-top:15px; padding-bottom:15px;">
-      </div>
-      <div class="container col-md-12 pre-scrollable" style="background-color:#d3d3d3; max-height:600px; height:600px">
+    <div class="container col-md-9" style="background-color:#f7c986; border-radius:5px; padding:10px">
+      <div class="container col-md-12 pre-scrollable" style="background-color:#ffecd8; padding:10px; max-height:600px; height:600px; border-radius:5px; border:1px solid lightgray">
         <table class="table table-bordered col-md-12">
           <thead>
             <tr>

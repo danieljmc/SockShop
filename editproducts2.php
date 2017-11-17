@@ -8,7 +8,7 @@
 <script>
 
 $('document').ready(function(){
-  $('#editproducts').css('background-color','gray');
+  $('#editproducts').css('background-color','#f7c986');
 
   var sizescolors = [];
   $('#addcolor').click(function(){
@@ -43,7 +43,7 @@ $('document').ready(function(){
 
     <!-- Check Stock -->
     <form action="php/addproduct.php" method="post" id='mainform'>
-      <div class="container col-md-9" style="background-color:#d3d3d3; height:460px; margin-top:60px; padding-top:20px; text-align:center;">
+      <div class="container col-md-9" style="background-color:#ffecd8; height:460px; margin-bottom:100px; padding-top:20px; text-align:center; border-radius:5px">
         <div class="container col-md-6">
           <label for="productname">Product Name:</label>
           <input type="text" class="form-control" id="productname" placeholder="Enter your product name" name="productname">

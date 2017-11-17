@@ -62,7 +62,7 @@ $(document).ready(function() {
     new StockItem(productid, type, manufacturer, color, size, location, quantity)
   }
 
-  $('#checkstock').css('background-color','grey');
+  $('#checkstock').css('background-color','#f7c986');
 
   $('#search').click(function(){
     $('#tablebody').empty()

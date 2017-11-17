@@ -9,7 +9,7 @@
 <script>
 
 $('document').ready(function(){
-  $('#newstock').css('background-color','gray');
+  $('#newstock').css('background-color','#f7c986');
 });
 
 </script>
@@ -23,7 +23,7 @@ $('document').ready(function(){
     <!-- Options tab -->
     <?php include('php/sidepanel.php'); ?>
 
-    <div class="container col-md-9" style="background-color:#ffecd8; margin-top:100px; padding-top:20px; padding-bottom:20px; border-radius:5px">
+    <div class="container col-md-9" style="background-color:#ffecd8; margin-bottom:200px; padding-top:20px; padding-bottom:20px; border-radius:5px">
       <div class="container col-md-12" style="padding-bottom:20px">
 		  <p style="font-size:120%; width:60%; margin:auto; text-align: center">
 			Use the check stock page and search by manufacturer to decide what items to restock. The destination of the order will be your store location.

@@ -7,7 +7,7 @@
 </head>
 <script>
 $('document').ready(function(){
-  $('#editaccounts').css('background-color','gray')
+  $('#editaccounts').css('background-color','#f7c986')
   var staff = []
   class Staff{
     constructor(id, Name, Wage, Hours, location){
@@ -79,7 +79,8 @@ inner join location l
     <?php include('php/sidepanel.php'); ?>
 
     <!-- Check Stock -->
-    <div class="container col-md-9" style="background-color:#d3d3d3; height:800px">
+    <div class="container col-md-9" style="background-color:#f7c986; padding-top:10px; padding-bottom:10px; max-height:800px; border-radius:5px">
+	<div class="container col-md-12" style="background-color:#ffecd8; padding-top:10px; border-radius:5px; border: 1px solid lightgray">
       <div class="container col-md-12" style="padding-top:15px; padding-bottom:15px;">
         <form action='editaccounts3.php' method='get'>
           <div class="col-md-3 container">
@@ -93,7 +94,7 @@ inner join location l
           <button type="button" onclick='window.location.href="editaccounts2.php"' class="btn btn-primary btn-md" id="add">Add a New Staff Member</button>
         </div>
       </div>
-      <div class="container col-md-12 pre-scrollable" style="background-color:#d3d3d3; max-height:600px; height:600px">
+      <div class="container col-md-12 pre-scrollable" style="background-color:#ffecd8; max-height:600px;">
         <table class="table table-bordered col-md-12">
           <thead>
             <tr>
@@ -115,6 +116,7 @@ inner join location l
           </tbody>
         </table>
       </div>
+	</div>
     </div>
 
     <!-- Footer -->

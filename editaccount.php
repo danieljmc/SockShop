@@ -7,7 +7,7 @@
 </head>
 <script>
 $('document').ready(function(){
-  $('#editaccount').css('background-color','gray')
+  $('#editaccount').css('background-color','#f7c986')
 
   <?php
   include('php/db.php');

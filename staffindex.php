@@ -8,7 +8,7 @@
 
 <script>
 $('document').ready(function(){
-  $('#vieworders').css('background-color', 'grey');
+  $('#vieworders').css('background-color', '#f7c986');
 
   var orders = [];
 

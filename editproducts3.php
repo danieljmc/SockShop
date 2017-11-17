@@ -8,7 +8,7 @@
 <script>
 
 $('document').ready(function(){
-  $('#editproducts').css('background-color','gray');
+  $('#editproducts').css('background-color','#f7c986');
 
   <?php
   include('php/db.php');
@@ -42,7 +42,7 @@ $('document').ready(function(){
     <!-- Check Stock -->
     <form action="php/updateproduct.php" method="post">
       <input id="productid" name="id" value="" hidden>
-      <div class="container col-md-9" style="background-color:#d3d3d3; height:400px; margin-top: 50px; padding-top:20px; text-align:center;">
+      <div class="container col-md-9" style="background-color:#ffecd8; height:400px; margin-bottom:200px; padding-top:20px; text-align:center; border-radius:5px">
         <div class="container col-md-12">
           <label for="productname">Product Name:</label>
           <input type="text" class="form-control" id="productname" placeholder="Enter your product name" name="productname">

@@ -8,7 +8,7 @@
 
 <script>
 $('document').ready(function(){
-  $('#recievestock').css('background-color','gray')
+  $('#recievestock').css('background-color','#f7c986')
   var orders = []
 
   class Order{

@@ -7,7 +7,7 @@
 </head>
 <script>
 $('document').ready(function(){
-  $('#editaccounts').css('background-color','gray')
+  $('#editaccounts').css('background-color','#f7c986')
 })
 </script>
 <body>
@@ -21,7 +21,7 @@ $('document').ready(function(){
 
     <!-- Check Stock -->
     <form action='php/createstaffaccount.php' method='post'>
-      <div class="container col-md-9" style="background-color:#d3d3d3; height:700px; padding-top:20px; text-align:center;">
+      <div class="container col-md-9" style="background-color:#ffecd8; max-height:700px; text-align:center; border-radius:5px; padding-top:10px; padding-bottom:10px">
         <div class="container col-md-6">
           <label for="fname">First Name:</label>
           <input type="text" class="form-control" id="fname" placeholder="Enter your first name" name="fname">
