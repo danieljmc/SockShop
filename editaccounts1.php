@@ -81,12 +81,14 @@ inner join location l
     <!-- Check Stock -->
     <div class="container col-md-9" style="background-color:#d3d3d3; height:800px">
       <div class="container col-md-12" style="padding-top:15px; padding-bottom:15px;">
-        <div class="col-md-3 container">
-          <input type="text" placeholder="Staff ID" class="form-control" id="staffID">
-        </div>
-        <div class="col-md-3 container">
-          <button type="button" class="btn btn-primary btn-md" id="update" style="width:100%">Update</button>
-        </div>
+        <form action='editaccounts3.php' method='get'>
+          <div class="col-md-3 container">
+            <input type="text" placeholder="Staff ID" class="form-control" name='staffID' id="staffID">
+          </div>
+          <div class="col-md-3 container">
+            <button type="submit" class="btn btn-primary btn-md" id="update" style="width:100%">Update</button>
+          </div>
+        </form>
         <div class="container col-md-6" style="text-align:right;">
           <button type="button" onclick='window.location.href="editaccounts2.php"' class="btn btn-primary btn-md" id="add">Add a New Staff Member</button>
         </div>
