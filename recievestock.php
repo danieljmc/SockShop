@@ -83,16 +83,17 @@ $('document').ready(function(){
     <!-- Options tab -->
     <?php include('php/sidepanel.php'); ?>
 
-    <div class="container col-md-9" style="background-color:#d3d3d3; height:800px; padding-top:20px;">
+    <div class="container col-md-9" style="background-color:#f7c986; padding-top:10px; padding-bottom:10px; border-radius:5px">
+	<div class="container col-md-12" style="background-color:#ffecd8; padding-top:10px; border-radius:5px; border: 1px solid lightgray">
       <form action="php/markrecieved.php" method="post">
         <div class="col-md-5 container">
           <input name="orderID" type="text" placeholder="Order ID" class="form-control" id="orderid">
         </div>
         <div class="col-md-3 container">
-          <input type="submit" value="Mark As Recieved" class="btn btn-primary btn-md" id="recieved">
+          <input type="submit" value="Mark As Received" class="btn btn-primary btn-md" id="recieved">
         </div>
       </form>
-      <div class="container col-md-12 pre-scrollable" style="background-color:#d3d3d3; max-height:600px; height:600px">
+      <div class="container col-md-12 pre-scrollable" style="background-color:#ffecd8; max-height:600px; height:600px; margin-top:10px"">
         <table class="table table-bordered col-md-12">
           <thead>
             <tr>
@@ -112,6 +113,7 @@ $('document').ready(function(){
           </tbody>
         </table>
       </div>
+	</div>
     </div>
 
     <!-- Footer -->

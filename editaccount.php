@@ -49,7 +49,7 @@ $('document').ready(function(){
     <!-- Options tab -->
     <?php include('php/sidepanel.php'); ?>
 
-    <div class="container col-md-9" style="background-color:#d3d3d3; height:620px; padding-top:20px; text-align:center;">
+    <div class="container col-md-9" style="background-color:#ffecd8; height:620px; padding-top:20px; text-align:center; border-radius:5px">
       <form action="php/updateaccount.php" method='post'>
         <div class="container col-md-6">
           <label for="fname">First Name:</label>

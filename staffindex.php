@@ -155,42 +155,45 @@ $('document').ready(function(){
     <?php include('php/sidepanel.php'); ?>
 
     <!-- Selected Option -->
-    <div class="container col-md-9 pre-scrollable" style="background-color:#d3d3d3; max-height:600px; height:600px">
-      <table class="table table-bordered col-md-12">
-        <thead>
-          <tr>
-            <th>Order ID</th>
-            <th>Customer Name</th>
-            <th>Products</th>
-            <th>Quantity</th>
-            <th>Status</th>
-          </tr>
-        </thead>
-        <tbody id="tablebody">
-          <tr>
-            <td>1</td>
-            <td>Gavin Henderson</td>
-            <td>Sock Type 1</td>
-            <td>2</td>
-            <td>
-              <select class="form-control" id="sel1">
-                <option>Placed</option>
-                <option>Ready</option>
-              </select>
-            </td>
-          </tr>
-          <tr>
-            <td></td>
-            <td></td>
-            <td>Sock Type 2</td>
-            <td>2</td>
-            <td></td>
-          </tr>
-        </tbody>
-      </table>
+	<div class="container col-md-9" style="background-color:#f7c986; border-radius:5px; padding:10px">
+		<div class="container col-md-12 pre-scrollable" style="background-color:#ffecd8; padding:10px; max-height:600px; height:600px; border-radius:5px; border:1px solid lightgray">
+		  <table class="table table-bordered col-md-12">
+			<thead>
+			  <tr>
+				<th>Order ID</th>
+				<th>Customer Name</th>
+				<th>Products</th>
+				<th>Quantity</th>
+				<th>Status</th>
+			  </tr>
+			</thead>
+			<div class="container" style="border-radius:5px">
+			<tbody id="tablebody">
+			  <tr>
+				<td>1</td>
+				<td>Gavin Henderson</td>
+				<td>Sock Type 1</td>
+				<td>2</td>
+				<td>
+				  <select class="form-control" id="sel1">
+					<option>Placed</option>
+					<option>Ready</option>
+				  </select>
+				</td>
+			  </tr>
+			  <tr>
+				<td></td>
+				<td></td>
+				<td>Sock Type 2</td>
+				<td>2</td>
+				<td></td>
+			  </tr>
+			</tbody>
+			</div>
+		  </table>
 
-    </div>
-
+		</div>
+	</div>
     <!-- Footer -->
     <?php include('php/footer.php'); ?>
 

@@ -152,8 +152,9 @@ $(document).ready(function() {
     <?php include('php/sidepanel.php'); ?>
 
     <!-- Check Stock -->
-    <div class="container col-md-9" style="background-color:#d3d3d3; height:800px">
-      <div class="col-md-6 container">
+	<div class="container col-md-9" style="background-color:#f7c986; border-radius:5px; padding:10px">
+    <div class="container col-md-12" style="background-color:#ffecd8; border-radius:5px; border:1px solid lightgray; padding:10px">
+      <div class="col-md-6 container" style="padding-bottom:10px">
         <input type="text" placeholder="Search Term" class="form-control" id="searchterm">
       </div>
       <div class="col-md-4 container">
@@ -168,7 +169,7 @@ $(document).ready(function() {
       <div class="col-md-2 container">
         <button type="button" class="btn btn-primary btn-md" id="search">Search</button>
       </div>
-      <div class="container col-md-12 pre-scrollable" style="background-color:#d3d3d3; max-height:600px; height:600px">
+      <div class="container col-md-12 pre-scrollable" style="background-color:#ffecd8; max-height:600px;">
         <table class="table table-bordered col-md-12">
           <thead>
             <tr>
@@ -186,6 +187,7 @@ $(document).ready(function() {
         </table>
       </div>
     </div>
+	</div>
 		<!-- FOOTER -->
        <?php include('php/footer.php'); ?>
 

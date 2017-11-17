@@ -23,10 +23,12 @@ $('document').ready(function(){
     <!-- Options tab -->
     <?php include('php/sidepanel.php'); ?>
 
-    <div class="container col-md-9" style="background-color:#d3d3d3; height:280px; margin-top:100px; padding-top:20px;">
-      <div class="container col-md-12" style="padding-bottom:20px"><p style="font-size:120%; width:60%; margin:auto;">
-        Use the check stock page and search by manufacturer to decided what items you need to restock. The destination of your order will be whatever store you are attached too.
-      </p></div>
+    <div class="container col-md-9" style="background-color:#ffecd8; margin-top:100px; padding-top:20px; padding-bottom:20px; border-radius:5px">
+      <div class="container col-md-12" style="padding-bottom:20px">
+		  <p style="font-size:120%; width:60%; margin:auto; text-align: center">
+			Use the check stock page and search by manufacturer to decide what items to restock. The destination of the order will be your store location.
+		  </p>
+	  </div>
       <form action="php/stockorder.php" method="post">
         <div class="col-md-12 container" style="padding-bottom:20px">
           <input style="width:50%; margin:auto;" type="text" placeholder="Product ID" name="productID" class="form-control" id="product">
@@ -38,6 +40,7 @@ $('document').ready(function(){
           <input type="submit" class="btn btn-primary" value="Submit Order" id="order">
         </div>
       </form>
+	 </div>
 
     <!-- Footer -->
     <?php include('php/footer.php'); ?>
