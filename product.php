@@ -172,13 +172,13 @@ The current populate page is just an example and is what will change
     <row>
 
       <!-- Div for the photo selector -->
-      <div class="container col-md-6" style="background-color:#d3d3d3; height:680px;" id="photoselector">
+      <div class="container col-md-6" style="background-color:#f7c986; border-radius:5px; padding-top:20px; padding-bottom:20px" id="photoselector">
 
       </div>
 
       <!-- div for the product description area-->
-      <div class="container col-md-6" style="background-color:#d3d3d3; height:680px;">
-
+      <div class="container col-md-6" style="background-color:#f7c986; border-radius:5px; padding-top:20px; padding-bottom:25px">
+		<div class="container col-md-12" style="background-color:#ffecd8; border-radius:5px; padding-top:20px; padding-bottom:10px; border: 1px solid lightgray">
         <row>
           <h2 class="col-md-12" style="text-align: center;" id="productname">Product Name</h2>
         </row>
@@ -243,6 +243,7 @@ The current populate page is just an example and is what will change
             </div>
           </row>
         </form>
+		</div>
       </div>
 
       <!-- Footer -->
