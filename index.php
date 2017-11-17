@@ -20,7 +20,6 @@ $('document').ready(function(){
 
     <!-- The navbar -->
     <?php include('php/header.php'); ?>
-		<?php if (isset($_SESSION['manusername'])) include_once('php/manunav.php');?>
 
 	<!-- Bootstrap photo slider -->
     <div class="col-md-12">
