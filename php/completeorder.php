@@ -69,7 +69,7 @@
     } catch( PDOExecption $e ){
       echo $e->getMessage();
     }
-    header('Location: ../index.php');
+    header('Location: ../index.php?completed=true');
     }else{
       $_SESSION['error'] = True;
       header('Location: ../basket.php');
