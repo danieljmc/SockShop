@@ -1,7 +1,7 @@
 <?php
 session_start();
 include('php/db.php');
-if (!empty($_POST["manusername"])) {
+if (!empty($_POST["username"])) {
 $query = "select Password from manufacturer where Email=\"".$_POST["username"]."\";";
 //echo $query;
 $stmt = $mysql->prepare($query);
@@ -10,7 +10,7 @@ $stmt = $mysql->prepare($query);
       $result = $stmt->fetch();
       $password = $result['Password'];
       if($_POST["password"]==$password){
-        $_SESSION["username"] = $_POST["username"];
+        $_SESSION["manusername"] = $_POST["username"];
         header("Location: manufacturerindex.php");
       }
     } catch( PDOException $e ){
